@@ -27,7 +27,7 @@ function cellText(v: ExcelJS.CellValue): string {
   if (typeof v === "number" || typeof v === "boolean") return String(v);
   if (v instanceof Date) return "";
   if (typeof v === "object") {
-    const o = v as Record<string, unknown>;
+    const o = v as unknown as Record<string, unknown>;
     if (Array.isArray(o.richText)) {
       return (o.richText as { text?: string }[]).map((r) => r.text ?? "").join("");
     }
