@@ -2340,12 +2340,18 @@ NEXT_PUBLIC_SHEET_ID=
 SHEET_GID=0
 ```
 
-`.env.local` — until the client supplies their own sheet, point at the snapshot's source so the path is exercised end to end:
+`.env.local` — the **client's own** sheet, supplied 2026-09-06 and verified
+publicly readable with the correct headers and all 89 rows:
 
 ```
-NEXT_PUBLIC_SHEET_ID=1DOTlYqT6HOG4JJTJn1vctXDbuCZpLHY9iR3GmQze7Kw
+NEXT_PUBLIC_SHEET_ID=1qXDmxwFdlJel8UqA_w5DR-co4FZZo0sFxNkk6YwATjo
 SHEET_GID=0
 ```
+
+Do **not** use the previous developer's sheet id
+(`1DOTlYqT6HOG4JJTJn1vctXDbuCZpLHY9iR3GmQze7Kw`). It still resolves, which is
+exactly why it is dangerous: pointing at it would look like it works while
+serving another party's prices, and it has no Bottle column.
 
 Confirm `.env*.local` is already in `.gitignore` (it was added in the initial commit).
 
