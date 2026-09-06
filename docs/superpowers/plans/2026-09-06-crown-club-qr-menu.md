@@ -2336,7 +2336,7 @@ git commit -m "Add live sheet fetching with a sanity guard"
 ```
 # Public, view-only Google Sheet holding the live menu.
 # Columns: Category | Name | Description | Price | Image | Available | Tags
-NEXT_PUBLIC_SHEET_ID=
+SHEET_ID=
 SHEET_GID=0
 ```
 
@@ -2344,7 +2344,7 @@ SHEET_GID=0
 publicly readable with the correct headers and all 89 rows:
 
 ```
-NEXT_PUBLIC_SHEET_ID=1qXDmxwFdlJel8UqA_w5DR-co4FZZo0sFxNkk6YwATjo
+SHEET_ID=1qXDmxwFdlJel8UqA_w5DR-co4FZZo0sFxNkk6YwATjo
 SHEET_GID=0
 ```
 
@@ -2354,6 +2354,15 @@ exactly why it is dangerous: pointing at it would look like it works while
 serving another party's prices, and it has no Bottle column.
 
 Confirm `.env*.local` is already in `.gitignore` (it was added in the initial commit).
+
+**Why `SHEET_ID` and not `NEXT_PUBLIC_SHEET_ID`:** anything prefixed
+`NEXT_PUBLIC_` is inlined into the JavaScript bundle every visitor downloads,
+so the spreadsheet id would be readable by anyone who opened dev tools on the
+menu. Only the Route Handler needs the id, and Route Handlers run on the
+server, so the un-prefixed name keeps it out of the browser entirely. This
+matters most if the sheet is ever shared as link-editable: the id is the hard
+part of finding it.
+
 
 - [ ] **Step 2: Write the route**
 
@@ -2366,7 +2375,7 @@ import { fetchLiveMenu } from "@/lib/sheet";
 export const revalidate = 60;
 
 export async function GET() {
-  const sheetId = process.env.NEXT_PUBLIC_SHEET_ID;
+  const sheetId = process.env.SHEET_ID;
 
   if (!sheetId) {
     return NextResponse.json({ items: [], source: "baked" as const });
@@ -2402,14 +2411,14 @@ import { fetchLiveMenu } from "@/lib/sheet";
 const mocked = vi.mocked(fetchLiveMenu);
 
 beforeEach(() => {
-  vi.stubEnv("NEXT_PUBLIC_SHEET_ID", "sheet-123");
+  vi.stubEnv("SHEET_ID", "sheet-123");
   mocked.mockReset();
 });
 afterEach(() => vi.unstubAllEnvs());
 
 describe("GET /api/menu", () => {
   it("reports 'baked' when no sheet is configured", async () => {
-    vi.stubEnv("NEXT_PUBLIC_SHEET_ID", "");
+    vi.stubEnv("SHEET_ID", "");
     const body = await (await GET()).json();
     expect(body).toEqual({ items: [], source: "baked" });
   });
@@ -3357,7 +3366,7 @@ Vercel's Next.js defaults are correct as-is: build command `next build`, output
 Two things must be done in the Vercel dashboard, because they cannot be in the
 repo:
 
-- Set **`NEXT_PUBLIC_SHEET_ID`** and **`SHEET_GID`** as environment variables
+- Set **`SHEET_ID`** and **`SHEET_GID`** as environment variables
   (Production and Preview). The values are in `.env.local`, which is
   gitignored. Without them `/api/menu` returns `{"source":"baked"}` — the menu
   still works, it simply stops picking up live price edits.
