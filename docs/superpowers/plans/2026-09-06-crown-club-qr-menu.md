@@ -2103,11 +2103,33 @@ afterEach(() => vi.restoreAllMocks());
 describe("parseGvizCsv", () => {
   it("reads quoted rows into source rows", () => {
     const csv =
-      '"Category","Name","Description","Price","Image","Available","Tags"\n' +
+      '"Category","Name","Description","Price","Bottle","Available","Tags"\n' +
       '"Beer","Corona","","10000","","yes",""\n';
     expect(parseGvizCsv(csv)).toEqual([
-      { category: "Beer", name: "Corona", glass: "10000", available: "yes" },
+      { category: "Beer", name: "Corona", glass: "10000", bottle: "", available: "yes" },
     ]);
+  });
+
+  it("reads the Bottle column when the sheet has one", () => {
+    const csv =
+      '"Category","Name","Price","Bottle","Available"\n' +
+      '"Whisky","Jack Daniels","10000","160000","yes"\n';
+    expect(parseGvizCsv(csv)[0]).toEqual({
+      category: "Whisky", name: "Jack Daniels",
+      glass: "10000", bottle: "160000", available: "yes",
+    });
+  });
+
+  it("tolerates a sheet with no Bottle column", () => {
+    const csv = '"Category","Name","Price"\n' + '"Beer","Corona","10000"\n';
+    expect(parseGvizCsv(csv)[0].bottle).toBe("");
+  });
+
+  it("keeps a dollar bottle price from the sheet in dollars", () => {
+    const csv =
+      '"Category","Name","Price","Bottle"\n' +
+      '"Tequila","Patron Silver","15000","200$"\n';
+    expect(parseGvizCsv(csv)[0].bottle).toBe("200$");
   });
 
   it("survives commas inside quoted fields", () => {
@@ -2441,7 +2463,7 @@ git commit -m "Add edge-cached menu API over the live sheet"
 - Consumes: `MenuItem`, `CATEGORIES`, `Dictionary`, `GET /api/menu` (Task 10).
 - Produces: the finished `<MenuBrowser initialItems dict />`.
 
-**Merge rule for live data:** the live sheet has **no bottle prices**, so a live refresh must only overwrite `glass` and `available`. Overwriting `bottle` would silently erase every bottle price on the menu. This is the single most dangerous line in the task.
+**Merge rule for live data:** a live value may only ever *replace* a baked one, never *clear* it. The client's sheet does carry a Bottle column, so bottle prices are live-editable — but a blank or unparseable cell must fall back to the baked price rather than wiping it, and an item missing from the live payload entirely must survive untouched. Assigning `update.bottle` unconditionally would erase every bottle price the moment a row went blank. This is the most dangerous line in the task.
 
 - [ ] **Step 1: Write the failing tests**
 
@@ -2551,6 +2573,19 @@ describe("MenuBrowser", () => {
     render(<MenuBrowser initialItems={items} dict={dict} />);
     await waitFor(() => expect(screen.getByText("16,000")).toBeInTheDocument());
     expect(screen.getByText("$200")).toBeInTheDocument();
+  });
+
+  it("applies a live bottle price", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        source: "live",
+        items: [{ id: "whisky__jack-daniels", name: "Jack Daniels", category: "Whisky",
+                  glass: iqd(13000), bottle: iqd(180000), available: true, image: null, tags: [] }],
+      }),
+    }));
+    render(<MenuBrowser initialItems={items} dict={dict} />);
+    await waitFor(() => expect(screen.getByText("180,000")).toBeInTheDocument());
   });
 
   it("NEVER lets a live refresh erase a bottle price", async () => {
@@ -2701,12 +2736,16 @@ import type { Dictionary } from "@/i18n/get-dictionary";
 /**
  * Fold live sheet values into the baked menu.
  *
- * The live sheet carries glass prices and availability only. It has no
- * bottle prices and may omit items entirely, so it can never remove a
- * baked item or clear a baked bottle price — it may only update the two
- * fields it actually knows about. Currency travels inside the Money value,
- * so a dollar price replaced by a dinar one is a visible change, not a
- * silent tenfold error.
+ * A live value REPLACES a baked one; it never CLEARS one. `?? item.x` is
+ * doing that work: a blank, deleted, or unparseable cell arrives as null and
+ * leaves the baked price standing. An item absent from the live payload is
+ * left entirely alone, so a partially-filled sheet cannot shrink the menu.
+ *
+ * Availability is the deliberate exception — it is a boolean the sheet owns
+ * outright, and "no" has to be able to win.
+ *
+ * Currency travels inside the Money value, so a dollar price replaced by a
+ * dinar one is a visible change rather than a silent tenfold error.
  */
 function applyLive(baked: MenuItem[], live: MenuItem[]): MenuItem[] {
   const byId = new Map(live.map((i) => [i.id, i]));
@@ -2716,6 +2755,7 @@ function applyLive(baked: MenuItem[], live: MenuItem[]): MenuItem[] {
     return {
       ...item,
       glass: update.glass ?? item.glass,
+      bottle: update.bottle ?? item.bottle,
       available: update.available,
     };
   });
