@@ -1405,7 +1405,7 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   "soldOut": "Sold out",
   "noResults": "Nothing matches that search",
   "contact": "Find us",
-  "contactSub": "Reach us or find us on social",
+  "contactSub": "For reservations and enquiries",
   "resultCount": "{count} drinks",
   "close": "Close",
   "categories": {
@@ -1444,7 +1444,7 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   "soldOut": "غير متوفر",
   "noResults": "لا توجد نتائج مطابقة",
   "contact": "تواصل معنا",
-  "contactSub": "تواصل معنا أو تابعنا على مواقع التواصل",
+  "contactSub": "للحجوزات والاستفسارات",
   "resultCount": "{count} مشروب",
   "close": "إغلاق",
   "categories": {
@@ -1483,7 +1483,7 @@ export const LOCALE_LABELS: Record<Locale, string> = {
   "soldOut": "تەواو بووە",
   "noResults": "هیچ ئەنجامێک نەدۆزرایەوە",
   "contact": "پەیوەندیمان پێوە بکە",
-  "contactSub": "پەیوەندیمان پێوە بکە یان لە تۆڕە کۆمەڵایەتییەکان بمانبینە",
+  "contactSub": "بۆ حەجزکردن و پرسیار",
   "resultCount": "{count} خواردنەوە",
   "close": "داخستن",
   "categories": {
@@ -2864,9 +2864,12 @@ Carried over from the old site, with the "Amber & Oak" placeholders removed. `sr
 
 ```ts
 export interface ContactLink {
-  key: "instagram" | "whatsapp" | "phone";
+  key: "instagram" | "whatsapp" | "phone-1" | "phone-2";
   label: string;
+  /** Shown to the customer in the local 07xx form they recognise. */
   handle: string;
+  /** Dialled/opened. Always the full international form — a 07xx tel: link
+   *  fails for anyone roaming or calling from outside Iraq. */
   url: string;
 }
 
@@ -2883,20 +2886,32 @@ export const CONTACT: { links: ContactLink[]; address: string; mapsUrl: string }
     {
       key: "whatsapp",
       label: "WhatsApp",
-      handle: "+964 750 243 8339",
+      handle: "0750 243 8339",
       url: "https://wa.me/9647502438339",
     },
     {
-      key: "phone",
+      key: "phone-1",
       label: "Call",
-      handle: "+964 775 833 8339",
+      handle: "0750 243 8339",
+      url: "tel:+9647502438339",
+    },
+    {
+      key: "phone-2",
+      label: "Call",
+      handle: "0775 833 8339",
       url: "tel:+9647758338339",
     },
   ],
 };
 ```
 
-The old site's Facebook entry pointed at bare `https://facebook.com/` and its WhatsApp entry at bare `https://wa.me/` — neither reached Crown Club. Facebook is dropped and the WhatsApp number is now wired into the URL. Confirm both numbers with the client before launch.
+Both numbers are **client-confirmed** (2026-09-06): 0750 243 8339 and
+0775 833 8339, for reservations and enquiries.
+
+The old site's Facebook entry pointed at bare `https://facebook.com/` and its
+WhatsApp entry at bare `https://wa.me/` — neither reached Crown Club. Facebook
+is dropped, and both numbers are now wired into working `tel:` and `wa.me`
+URLs.
 
 - [ ] **Step 2: Write the contact sheet**
 
@@ -3351,7 +3366,6 @@ Before calling this done, confirm with the client:
 
 - [ ] Bacardi Carta Blanca and Carta Negra — keep or drop?
 - [ ] Photos for Miller and Captain Morgan Black
-- [ ] Both phone numbers in `src/lib/contact.ts` are correct
 - [ ] Sorani Kurdish copy reviewed by a native speaker
 - [ ] `crown-menu.xlsx` uploaded to the **client's** Google Drive, shared "anyone with the link (Viewer)", and its ID set in Vercel
 - [ ] QR scanned from a printed sample, not just a screen
