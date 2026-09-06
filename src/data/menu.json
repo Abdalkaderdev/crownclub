@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T12:54:51.468Z",
+  "generatedAt": "2026-09-06T12:59:28.296Z",
   "items": [
     {
       "id": "cocktails__blue-lagoon",
@@ -11,7 +11,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/bluelagoon.webp",
       "tags": []
     },
     {
@@ -24,7 +24,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/bullfrog.webp",
       "tags": []
     },
     {
@@ -50,7 +50,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/londonmule.webp",
       "tags": []
     },
     {
@@ -63,7 +63,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/longisland.webp",
       "tags": []
     },
     {
@@ -76,7 +76,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/margareta.webp",
       "tags": []
     },
     {
@@ -89,7 +89,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/mojito.webp",
       "tags": []
     },
     {
@@ -102,7 +102,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/negroni.webp",
       "tags": []
     },
     {
@@ -115,7 +115,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/oldfashoined.webp",
       "tags": []
     },
     {
@@ -128,7 +128,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/pinacolada.webp",
       "tags": []
     },
     {
@@ -141,7 +141,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/sexonthebeach.webp",
       "tags": []
     },
     {
@@ -154,7 +154,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/whiskeysour.webp",
       "tags": []
     },
     {
@@ -167,7 +167,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/soft-drinks/ginger-beer.webp",
       "tags": []
     },
     {
@@ -180,7 +180,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/soft-drinks/pepsi-7up-merinda.webp",
       "tags": []
     },
     {
@@ -193,7 +193,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/soft-drinks/redbull.webp",
       "tags": []
     },
     {
@@ -206,7 +206,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/soft-drinks/soda.webp",
       "tags": []
     },
     {
@@ -219,7 +219,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/soft-drinks/soda.webp",
       "tags": []
     },
     {
@@ -232,7 +232,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/soft-drinks/tonic-water.webp",
       "tags": []
     },
     {
@@ -245,7 +245,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/beer/almaza.webp",
       "tags": []
     },
     {
@@ -258,7 +258,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/beer/budweiser.webp",
       "tags": []
     },
     {
@@ -271,7 +271,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/beer/corona.webp",
       "tags": []
     },
     {
@@ -284,7 +284,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/beer/heinekin.webp",
       "tags": []
     },
     {
@@ -313,7 +313,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/arak/gobek.webp",
       "tags": []
     },
     {
@@ -329,7 +329,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/arak/ouzo.webp",
       "tags": []
     },
     {
@@ -345,7 +345,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/arak/tek-blue.webp",
       "tags": []
     },
     {
@@ -361,7 +361,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/arak/tekirdag.webp",
       "tags": []
     },
     {
@@ -377,7 +377,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/arak/toma.webp",
       "tags": []
     },
     {
@@ -393,7 +393,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/cognac/hennessy.webp",
       "tags": []
     },
     {
@@ -409,7 +409,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/cognac/vsop.webp",
       "tags": []
     },
     {
@@ -425,7 +425,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/cognac/karavan.webp",
       "tags": []
     },
     {
@@ -441,7 +441,7 @@
         "value": 175000
       },
       "available": true,
-      "image": null,
+      "image": "/images/gin/bombay.webp",
       "tags": []
     },
     {
@@ -457,7 +457,7 @@
         "value": 100000
       },
       "available": true,
-      "image": null,
+      "image": "/images/gin/gordons.webp",
       "tags": []
     },
     {
@@ -473,7 +473,7 @@
         "value": 200000
       },
       "available": true,
-      "image": null,
+      "image": "/images/gin/hendricks.webp",
       "tags": []
     },
     {
@@ -489,7 +489,7 @@
         "value": 225000
       },
       "available": true,
-      "image": null,
+      "image": "/images/gin/roku.webp",
       "tags": []
     },
     {
@@ -505,7 +505,7 @@
         "value": 200000
       },
       "available": true,
-      "image": null,
+      "image": "/images/gin/tanq.webp",
       "tags": []
     },
     {
@@ -518,7 +518,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/rum/bacardi.webp",
       "tags": []
     },
     {
@@ -531,7 +531,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/rum/bacardi-negra.webp",
       "tags": []
     },
     {
@@ -544,7 +544,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/rum/morgan.webp",
       "tags": []
     },
     {
@@ -557,7 +557,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/rum/morgan.webp",
       "tags": []
     },
     {
@@ -570,7 +570,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/rum/morgan.webp",
       "tags": []
     },
     {
@@ -583,7 +583,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/rum/malibu.webp",
       "tags": []
     },
     {
@@ -599,7 +599,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/liqueur/absente.webp",
       "tags": []
     },
     {
@@ -615,7 +615,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/liqueur/baileys.webp",
       "tags": []
     },
     {
@@ -631,7 +631,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/liqueur/campari.webp",
       "tags": []
     },
     {
@@ -647,7 +647,7 @@
         "value": 200000
       },
       "available": true,
-      "image": null,
+      "image": "/images/liqueur/jagernaster.webp",
       "tags": []
     },
     {
@@ -663,7 +663,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/liqueur/kahla-coffe.webp",
       "tags": []
     },
     {
@@ -679,7 +679,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/liqueur/martini.webp",
       "tags": []
     },
     {
@@ -695,7 +695,7 @@
         "value": 200000
       },
       "available": true,
-      "image": null,
+      "image": "/images/tequila/olmeco.webp",
       "tags": []
     },
     {
@@ -711,7 +711,7 @@
         "value": 200000
       },
       "available": true,
-      "image": null,
+      "image": "/images/tequila/olmeco.webp",
       "tags": []
     },
     {
@@ -724,7 +724,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/tequila/parton-gold.webp",
       "tags": []
     },
     {
@@ -740,7 +740,7 @@
         "value": 200
       },
       "available": true,
-      "image": null,
+      "image": "/images/tequila/patron.webp",
       "tags": []
     },
     {
@@ -756,7 +756,7 @@
         "value": 130000
       },
       "available": true,
-      "image": null,
+      "image": "/images/vodka/absolut.webp",
       "tags": []
     },
     {
@@ -772,7 +772,7 @@
         "value": 200000
       },
       "available": true,
-      "image": null,
+      "image": "/images/vodka/beluga.webp",
       "tags": []
     },
     {
@@ -788,7 +788,7 @@
         "value": 200000
       },
       "available": true,
-      "image": null,
+      "image": "/images/vodka/belvedere.webp",
       "tags": []
     },
     {
@@ -801,7 +801,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/vodka/finlandia.webp",
       "tags": []
     },
     {
@@ -817,7 +817,7 @@
         "value": 200000
       },
       "available": true,
-      "image": null,
+      "image": "/images/vodka/graygoose.webp",
       "tags": []
     },
     {
@@ -833,7 +833,7 @@
         "value": 130000
       },
       "available": true,
-      "image": null,
+      "image": "/images/vodka/stoli.webp",
       "tags": []
     },
     {
@@ -849,7 +849,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/vodka/titos.webp",
       "tags": []
     },
     {
@@ -865,7 +865,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/bushmills.webp",
       "tags": []
     },
     {
@@ -881,7 +881,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/bushmils-black.webp",
       "tags": []
     },
     {
@@ -897,7 +897,7 @@
         "value": 175000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/chivas-12y.webp",
       "tags": []
     },
     {
@@ -913,7 +913,7 @@
         "value": 225000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/chivas-18y.webp",
       "tags": []
     },
     {
@@ -929,7 +929,7 @@
         "value": 175000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/glenfiddich-12y.webp",
       "tags": []
     },
     {
@@ -945,7 +945,7 @@
         "value": 225000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/glen-15y.webp",
       "tags": []
     },
     {
@@ -961,7 +961,7 @@
         "value": 160000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/jack-danills.webp",
       "tags": []
     },
     {
@@ -977,7 +977,7 @@
         "value": 170000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/jack-apple.webp",
       "tags": []
     },
     {
@@ -993,7 +993,7 @@
         "value": 180000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/jack-fire.webp",
       "tags": []
     },
     {
@@ -1009,7 +1009,7 @@
         "value": 170000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/jack-hiney.webp",
       "tags": []
     },
     {
@@ -1025,7 +1025,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/jamson-crested.webp",
       "tags": []
     },
     {
@@ -1041,7 +1041,7 @@
         "value": 170000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/black-label.webp",
       "tags": []
     },
     {
@@ -1057,7 +1057,7 @@
         "value": 200000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/double-balck.webp",
       "tags": []
     },
     {
@@ -1073,7 +1073,7 @@
         "value": 250000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/gold.webp",
       "tags": []
     },
     {
@@ -1089,7 +1089,7 @@
         "value": 130000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/rd-label.webp",
       "tags": []
     },
     {
@@ -1105,7 +1105,7 @@
         "value": 225000
       },
       "available": true,
-      "image": null,
+      "image": "/images/whisky/woodford.webp",
       "tags": []
     },
     {
@@ -1121,7 +1121,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/red-wine/frontera-caberent.webp",
       "tags": []
     },
     {
@@ -1137,7 +1137,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/red-wine/sweet-selection.webp",
       "tags": []
     },
     {
@@ -1153,7 +1153,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/red-wine/jacobs.webp",
       "tags": []
     },
     {
@@ -1169,7 +1169,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/red-wine/jacobs-greek-shiraz.webp",
       "tags": []
     },
     {
@@ -1185,7 +1185,7 @@
         "value": 175000
       },
       "available": true,
-      "image": null,
+      "image": "/images/red-wine/sauvignon.webp",
       "tags": []
     },
     {
@@ -1201,7 +1201,7 @@
         "value": 175000
       },
       "available": true,
-      "image": null,
+      "image": "/images/red-wine/malbec.webp",
       "tags": []
     },
     {
@@ -1217,7 +1217,7 @@
         "value": 175000
       },
       "available": true,
-      "image": null,
+      "image": "/images/white-wine/b-g-sauvignon-blanc.webp",
       "tags": []
     },
     {
@@ -1233,7 +1233,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/white-wine/jacobs-greek-chardonny.webp",
       "tags": []
     },
     {
@@ -1249,7 +1249,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/white-wine/jacobs-greek-riesling.webp",
       "tags": []
     },
     {
@@ -1265,7 +1265,7 @@
         "value": 175000
       },
       "available": true,
-      "image": null,
+      "image": "/images/white-wine/ksara-blanc-de-blanc.webp",
       "tags": []
     },
     {
@@ -1281,7 +1281,7 @@
         "value": 175000
       },
       "available": true,
-      "image": null,
+      "image": "/images/white-wine/sinsi-white.webp",
       "tags": []
     },
     {
@@ -1297,7 +1297,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/rose-wine/jacobs-greek-rose.webp",
       "tags": []
     },
     {
@@ -1313,7 +1313,7 @@
         "value": 175000
       },
       "available": true,
-      "image": null,
+      "image": "/images/rose-wine/ksara-rose.webp",
       "tags": []
     },
     {
@@ -1329,7 +1329,7 @@
         "value": 150000
       },
       "available": true,
-      "image": null,
+      "image": "/images/sparkling-wine/piccini-prosecco.webp",
       "tags": []
     }
   ]
