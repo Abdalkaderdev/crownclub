@@ -44,7 +44,7 @@ export function ItemCard({
         onClick={() => item.image && onPhoto(item)}
         disabled={!item.image}
         aria-label={item.name}
-        className="bg-panel relative size-14 shrink-0 overflow-hidden rounded-xl disabled:cursor-default"
+        className="bg-panel relative size-14 shrink-0 overflow-hidden rounded-xl transition-transform duration-150 enabled:active:scale-[0.96] disabled:cursor-default"
       >
         {item.image ? (
           <Image src={item.image} alt="" fill sizes="56px" className="object-cover" />
@@ -57,8 +57,11 @@ export function ItemCard({
 
       <div className="min-w-0 flex-1">
         <p className="truncate font-semibold">{item.name}</p>
+        {/* A badge, not just dimming: opacity alone conveys nothing to a
+            screen reader or to anyone who cannot compare it against a
+            neighbouring row. */}
         {!item.available && (
-          <span className="text-muted text-[0.62rem] uppercase tracking-[0.16em]">
+          <span className="border-cream/25 text-muted mt-1 inline-block rounded border px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.14em]">
             {dict.soldOut}
           </span>
         )}

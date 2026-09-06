@@ -17,14 +17,17 @@ export function CategoryChips({
   const ordered = CATEGORIES.filter((c) => present.includes(c));
 
   return (
-    <div className="-mx-4 flex gap-2 overflow-x-auto px-4 py-2 [scrollbar-width:none]">
+    <div className="no-scrollbar -mx-4 flex snap-x gap-2 overflow-x-auto px-4 py-2"
+      role="group"
+      aria-label={dict.all}>
       <button
         type="button"
         onClick={() => onSelect(null)}
-        className={`shrink-0 rounded-full px-3 py-1 text-xs ${
+        aria-pressed={active === null}
+        className={`inline-flex min-h-[44px] shrink-0 snap-start items-center whitespace-nowrap rounded-full px-4 text-sm transition-colors duration-150 active:scale-[0.97] ${
           active === null
             ? "bg-saffron text-saffron-ink font-semibold"
-            : "border-cream/15 text-muted border"
+            : "border-cream/20 text-cream/80 border"
         }`}
       >
         {dict.all}
@@ -34,10 +37,11 @@ export function CategoryChips({
           key={c}
           type="button"
           onClick={() => onSelect(active === c ? null : c)}
-          className={`shrink-0 whitespace-nowrap rounded-full px-3 py-1 text-xs ${
+          aria-pressed={active === c}
+          className={`inline-flex min-h-[44px] shrink-0 snap-start items-center whitespace-nowrap rounded-full px-4 text-sm transition-colors duration-150 active:scale-[0.97] ${
             active === c
               ? "bg-saffron text-saffron-ink font-semibold"
-              : "border-cream/15 text-muted border"
+              : "border-cream/20 text-cream/80 border"
           }`}
         >
           {dict.categories[c]}

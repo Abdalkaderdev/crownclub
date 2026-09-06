@@ -24,8 +24,8 @@ export function LanguageSwitch({ current }: { current: Locale }) {
           key={l}
           href={`/${l}${rest ? `/${rest}` : ""}`}
           aria-current={l === current ? "page" : undefined}
-          className={`rounded-full px-3 py-1 text-xs ${
-            l === current ? "bg-saffron text-saffron-ink font-semibold" : "text-muted"
+          className={`inline-flex min-h-[38px] items-center rounded-full px-3.5 text-sm transition-colors duration-150 ${
+            l === current ? "bg-saffron text-saffron-ink font-semibold" : "text-cream/80"
           }`}
         >
           {LOCALE_LABELS[l]}

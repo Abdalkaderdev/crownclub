@@ -10,7 +10,7 @@ export function SearchBar({
   placeholder: string;
 }) {
   return (
-    <div className="border-cream/15 bg-panel flex items-center gap-2 rounded-xl border px-3 py-2">
+    <div className="border-cream/15 bg-panel focus-within:border-saffron/60 flex min-h-[44px] items-center gap-2 rounded-xl border px-3 transition-colors duration-150">
       <svg
         viewBox="0 0 24 24"
         fill="none"
@@ -30,7 +30,9 @@ export function SearchBar({
         placeholder={placeholder}
         aria-label={placeholder}
         autoComplete="off"
-        className="text-cream placeholder:text-muted w-full bg-transparent outline-none"
+        // text-base is load-bearing: iOS zooms the page in when a focused input
+        // is under 16px, which throws the whole menu off-screen.
+        className="text-cream placeholder:text-muted w-full bg-transparent py-2.5 text-base outline-none"
       />
     </div>
   );

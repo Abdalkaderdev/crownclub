@@ -73,7 +73,7 @@ export default async function LocaleLayout({
       dir={isRtl(locale) ? "rtl" : "ltr"}
       className={`${display.variable} ${body.variable} ${arabic.variable}`}
     >
-      <body className="bg-ink text-cream min-h-screen pb-16 antialiased">{children}</body>
+      <body className="bg-ink text-cream min-h-dvh pb-16 antialiased">{children}</body>
     </html>
   );
 }

@@ -32,7 +32,19 @@ export function PhotoSheet({
       onClick={onClose}
       className="fixed inset-0 z-50 grid place-items-center bg-black/85 p-6"
     >
-      <div className="text-center">
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label={dict.close}
+        className="text-cream/70 absolute end-4 top-4 grid size-11 place-items-center rounded-full"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+             strokeLinecap="round" className="size-6" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+        </svg>
+      </button>
+      <div className="text-center" onClick={(e) => e.stopPropagation()}>
         <Image
           src={item.image}
           alt={item.name}
@@ -49,7 +61,7 @@ export function PhotoSheet({
             .filter(Boolean)
             .join("   ·   ")}
         </p>
-        <button type="button" onClick={onClose} className="text-muted mt-4 text-xs underline">
+        <button type="button" onClick={onClose} className="text-muted mt-4 min-h-[44px] px-4 text-sm underline">
           {dict.close}
         </button>
       </div>

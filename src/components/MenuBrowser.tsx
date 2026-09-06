@@ -84,7 +84,7 @@ export function MenuBrowser({
 
   return (
     <main>
-      <div className="bg-ink/95 sticky top-0 z-10 py-2 backdrop-blur">
+      <div className="bg-ink/95 border-cream/10 sticky top-0 z-20 -mx-4 border-b px-4 py-2 backdrop-blur-md">
         <SearchBar value={query} onChange={setQuery} placeholder={dict.search} />
         <CategoryChips present={present} active={active} onSelect={setActive} dict={dict} />
       </div>

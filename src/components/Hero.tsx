@@ -23,7 +23,9 @@ export function Hero({ dict, locale }: { dict: Dictionary; locale: Locale }) {
         className="mx-auto mb-3 h-auto w-[180px] max-w-[70%] object-contain"
       />
       <p className="text-muted text-sm">{dict.tagline}</p>
-      <p className="text-muted/70 mt-2 text-[0.68rem]">{dict.priceNote}</p>
+      {/* Full muted, not muted/70: at 70% opacity this sat at 3.88:1,
+          under the 4.5:1 minimum. */}
+      <p className="text-muted mt-2 text-xs">{dict.priceNote}</p>
     </header>
   );
 }
