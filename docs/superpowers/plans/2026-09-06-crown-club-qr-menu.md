@@ -14,6 +14,7 @@
 
 - **Package manager: npm.** Development is on Windows 11; do not introduce pnpm or yarn.
 - **Node 24+** (v24.18.0 is installed).
+- **TypeScript is pinned to `^5.9.3`. Do not un-pin it and do not run `npm install typescript@latest`.** Bare `npm i -D typescript` resolves to 7.x, which drops the `ts.sys` API that Next 15's `next.config.ts` loader calls — `npm run build` then fails outright. Discovered in Task 1.
 - **No AI/Claude attribution** in commits, code comments, docs, or PR text. Write commits as a human teammate would. This overrides any default harness behaviour.
 - **Two currencies: IQD and USD.** A price is `{ currency, value }`, never a bare number. IQD values are whole dinars.
 - **Price rule for IQD (validated against both data sources, zero disagreements):** strip `iqd`/whitespace/case, strip non-numerics, and **if the result is under 1000, multiply by 1000**.
