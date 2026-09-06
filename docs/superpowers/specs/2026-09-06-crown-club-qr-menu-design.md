@@ -158,27 +158,34 @@ positive number. A corrupted or emptied spreadsheet must never blank the menu.
 
 | Module | Responsibility | Depends on |
 |---|---|---|
-| `lib/price.ts` | Normalise any price string to IQD; format for display | nothing |
-| `lib/menu-schema.ts` | Zod schema + `MenuItem` type | zod |
+| `lib/money.ts` | `Money` type + schema. The one definition of a price. | zod |
+| `lib/price.ts` | Parse any price string; format for display | money |
+| `lib/menu-schema.ts` | Categories, `MenuItem`, zod schemas | money, zod |
 | `lib/merge.ts` | Reconcile Excel + sheet rows, apply alias map | price, schema |
-| `lib/sheet.ts` | Fetch + parse gviz CSV, run sanity guard | price, merge |
+| `lib/sheet.ts` | Fetch + parse gviz CSV, run sanity guard | merge |
 | `app/api/menu/route.ts` | Edge-cached proxy over `lib/sheet` | sheet |
-| `lib/menu-client.ts` | Baked data + background refresh + localStorage | api route |
 | `i18n/` | `en.json` / `ar.json` / `ckb.json`, dictionary loader | nothing |
 | `scripts/build-menu.ts` | Offline: xlsx + sheet into `menu.json` | merge |
-| `scripts/optimize-images.ts` | Offline: sharp into WebP, 400px + 800px | nothing |
+| `scripts/optimize-images.ts` | Offline: sharp into WebP at 800px | nothing |
+| `scripts/build-image-map.ts` | Offline: item to photo, written for review | slug |
 
-`lib/price.ts` and `lib/merge.ts` are pure functions with no I/O, which is what
-makes the risky logic testable in isolation.
+`lib/money.ts`, `lib/price.ts`, and `lib/merge.ts` are pure functions with no
+I/O, which is what makes the money-handling logic testable in isolation.
 
 ### Components
 
-Server: `Hero`, `MenuSection`, `ItemCard` (static content, no JS shipped).
-Client islands: `LanguageSwitch`, `SearchBar`, `CategoryChips` (sticky),
-`PhotoSheet`, `ContactSheet`, `LiveRefresh`.
+`app/[lang]/page.tsx` is a server component that reads `menu.json` and passes
+the items into `MenuBrowser`. `MenuBrowser` is a client component but is still
+server-rendered, so the drink names and prices are in the initial HTML and the
+menu is fully readable with JavaScript disabled — only search and language
+switching need JS.
 
-Search, category filtering, and the live swap are the only interactive
-concerns, so they are the only things that ship JavaScript.
+`Hero` is a server component. `MenuBrowser`, `MenuSection`, `ItemCard`,
+`SearchBar`, `CategoryChips`, `PhotoSheet`, `ContactSheet`, and
+`LanguageSwitch` are client components.
+
+One 800px WebP per drink is generated offline; `next/image` derives the smaller
+responsive sizes at request time, so there is no hand-rolled size pipeline.
 
 ## Internationalisation
 
