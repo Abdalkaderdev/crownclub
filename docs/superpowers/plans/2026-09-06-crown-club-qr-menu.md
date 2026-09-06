@@ -3223,15 +3223,30 @@ git commit -m "Add QR and client spreadsheet generators"
 Run: `npm test && npm run build`
 Expected: green. Do not deploy otherwise.
 
-- [ ] **Step 2: Deploy to Vercel**
+- [ ] **Step 2: Deploy via Vercel's Git integration**
 
-```bash
-npx vercel --prod
-```
+**The client connects the GitHub repo to Vercel themselves — do not run
+`npx vercel`, and do not create a Vercel project.** Once connected, every push
+to `main` deploys automatically.
 
-This is interactive and requires the **client's** Vercel account, not a developer's. If the session is non-interactive, stop and hand this step to the user with the exact command.
+Vercel's Next.js defaults are correct as-is: build command `next build`, output
+`.next`, install `npm install`. Change none of them.
 
-Set `NEXT_PUBLIC_SHEET_ID` and `SHEET_GID` in the Vercel project's environment variables — the values are in `.env.local`, which is not committed.
+Two things must be done in the Vercel dashboard, because they cannot be in the
+repo:
+
+- Set **`NEXT_PUBLIC_SHEET_ID`** and **`SHEET_GID`** as environment variables
+  (Production and Preview). The values are in `.env.local`, which is
+  gitignored. Without them `/api/menu` returns `{"source":"baked"}` — the menu
+  still works, it simply stops picking up live price edits.
+- Note the production URL Vercel assigns (likely `crownclub.vercel.app`). Step 4
+  needs it.
+
+Do **not** wire `build:menu`, `build:images`, or `build:imagemap` into the
+Vercel build. They are offline steps: `src/data/menu.json` and `public/images/`
+are committed, so a clean checkout already has everything `next build` needs.
+Running them on Vercel would add `sharp` and `exceljs` to the deploy for no
+benefit.
 
 - [ ] **Step 3: Verify the deployment**
 
@@ -3257,12 +3272,16 @@ Scan it with an actual phone camera before sending anything to a printer.
 
 `README.md` must cover: how to change a price (edit the Google Sheet, live within 60 seconds), how to add a drink (edit the sheet, then re-run `npm run build:menu` and redeploy so it is baked in too), how to add a photo (drop it in `assets/original-images/<Category>/`, run `npm run build:images && npm run build:imagemap && npm run build:menu`), and the four open questions from the spec.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 6: Commit and push**
 
 ```bash
 git add README.md deliverables
 git commit -m "Add deployment README and print-ready QR code"
+git push origin main
 ```
+
+The push is the deploy. Watch the Vercel dashboard until the build goes green,
+then re-run Step 3 against the production URL.
 
 ---
 
