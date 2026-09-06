@@ -19,7 +19,7 @@
 - **Price rule for IQD (validated against both data sources, zero disagreements):** strip `iqd`/whitespace/case, strip non-numerics, and **if the result is under 1000, multiply by 1000**.
 - **Dollar prices stay in dollars.** `200$` is $200. The sub-1000 rule applies to IQD only, and no conversion ever happens — not at build time, not at runtime.
 - **Display:** IQD as a bare grouped number (`15,000`) with one "prices in IQD unless marked" note on the page; USD always with the symbol (`$200`).
-- **Product names are never translated.** Only UI strings and category names have `ar`/`ckb` variants.
+- **Product names are never translated and never case-normalised.** They render exactly as stored, so some are upper-case and some are not. Tests match them case-insensitively. Only UI strings and category names have `ar`/`ckb` variants.
 - **Locales: exactly `en`, `ar`, `ckb`.** `ar` and `ckb` are RTL.
 - **Brand colours:** saffron `#D9A353`, ink `#0C0A0B`, cream `#F2E9DC`, muted `#A6968A`.
 - **The string "Amber & Oak" must not appear anywhere in the output.** It is leftover template metadata from the old site.
@@ -82,7 +82,7 @@ npm init -y
 npm install next@15 react@19 react-dom@19
 npm install -D typescript @types/node @types/react @types/react-dom \
   tailwindcss@4 @tailwindcss/postcss vitest @vitejs/plugin-react \
-  jsdom @testing-library/react @testing-library/jest-dom
+  jsdom @testing-library/react @testing-library/jest-dom tsx
 ```
 
 - [ ] **Step 2: Write the config files**
@@ -97,11 +97,11 @@ npm install -D typescript @types/node @types/react @types/react-dom \
     "start": "next start",
     "test": "vitest run",
     "test:watch": "vitest",
-    "build:menu": "node --experimental-strip-types scripts/build-menu.ts",
-    "build:images": "node --experimental-strip-types scripts/optimize-images.ts",
-    "build:imagemap": "node --experimental-strip-types scripts/build-image-map.ts",
-    "make:qr": "node --experimental-strip-types scripts/make-qr.ts",
-    "make:xlsx": "node --experimental-strip-types scripts/make-client-xlsx.ts"
+    "build:menu": "tsx scripts/build-menu.ts",
+    "build:images": "tsx scripts/optimize-images.ts",
+    "build:imagemap": "tsx scripts/build-image-map.ts",
+    "make:qr": "tsx scripts/make-qr.ts",
+    "make:xlsx": "tsx scripts/make-client-xlsx.ts"
   }
 }
 ```
@@ -160,7 +160,9 @@ import path from "node:path";
 export default defineConfig({
   plugins: [react()],
   test: { environment: "jsdom", globals: true },
-  resolve: { alias: { "@": path.resolve(__dirname, "./src") } },
+  // process.cwd(), not __dirname — this config may be loaded as ESM,
+  // where __dirname does not exist.
+  resolve: { alias: { "@": path.resolve(process.cwd(), "src") } },
 });
 ```
 
@@ -176,14 +178,32 @@ export default defineConfig({
   --color-saffron-ink: #241505;
   --color-cream: #f2e9dc;
   --color-muted: #a6968a;
-  --font-display: "Bricolage Grotesque", sans-serif;
-  --font-body: "Manrope", sans-serif;
-  --font-arabic: "Noto Kufi Arabic", sans-serif;
+
+  /* The "-loaded" variables come from next/font in the locale layout
+     (Task 7). Binding them here is what actually makes the fonts apply —
+     declaring them in next/font alone does nothing. */
+  --font-display: var(--font-display-loaded), "Bricolage Grotesque", sans-serif;
+  --font-body: var(--font-body-loaded), "Manrope", system-ui, sans-serif;
+  --font-arabic: var(--font-arabic-loaded), "Noto Kufi Arabic", sans-serif;
 }
 
 body {
   background: var(--color-ink);
   color: var(--color-cream);
+  font-family: var(--font-body);
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+}
+
+/* Arabic and Kurdish are both Arabic script — one face for the whole
+   document, headings included. */
+[dir="rtl"] body,
+[dir="rtl"] h1,
+[dir="rtl"] h2 {
+  font-family: var(--font-arabic);
 }
 ```
 
@@ -254,13 +274,21 @@ Expected: PASS, 6 tests.
 
 - [ ] **Step 7: Add the minimal app shell so `next build` succeeds**
 
+This is a **real** root layout with `<html>` and `<body>`. Next.js errors out
+if the root layout renders neither. Task 7 demotes it to a pass-through once
+`app/[lang]/layout.tsx` takes over the document element.
+
 `src/app/layout.tsx`:
 
 ```tsx
 import "./globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
 }
 ```
 
@@ -938,9 +966,9 @@ The Excel has no header row — category names sit in column A on their own line
 import ExcelJS from "exceljs";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
-import { mergeMenu } from "../src/lib/merge.ts";
-import { normaliseCategory, menuPayloadSchema } from "../src/lib/menu-schema.ts";
-import type { SourceRow } from "../src/lib/menu-schema.ts";
+import { mergeMenu } from "../src/lib/merge";
+import { normaliseCategory, menuPayloadSchema } from "../src/lib/menu-schema";
+import type { SourceRow } from "../src/lib/menu-schema";
 
 const ROOT = process.cwd();
 const XLSX = path.join(ROOT, "assets/source-menu.xlsx");
@@ -1154,21 +1182,18 @@ git commit -m "Generate baked menu.json from the Excel and sheet snapshot"
 npm install -D sharp
 ```
 
-- [ ] **Step 2: Write the image-map builder**
+- [ ] **Step 2: Write the shared folder map**
 
-Matching is done **once, offline, into a file a human can read and correct** — not at runtime. `scripts/build-image-map.ts`:
+Both scripts in this task need the same source-folder-to-category mapping. It
+lives in one file so a folder added to one script cannot silently go missing
+from the other — that failure mode produces no error, just drinks with no
+photo.
+
+`scripts/image-folders.ts`:
 
 ```ts
-import { readdir, readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
-import { slugify } from "../src/lib/slug.ts";
-
-const ROOT = process.cwd();
-const SRC = path.join(ROOT, "assets/original-images");
-const OUT = path.join(ROOT, "assets/image-map.json");
-
-/** Source folder name -> our category slug. */
-const FOLDER_TO_CATEGORY: Record<string, string> = {
+/** Photo folder name in assets/original-images -> our category slug. */
+export const FOLDER_TO_CATEGORY: Record<string, string> = {
   Arak: "arak",
   Beer: "beer",
   Cocktails: "cocktails",
@@ -1185,6 +1210,21 @@ const FOLDER_TO_CATEGORY: Record<string, string> = {
   "White wine": "white-wine",
   Wine: "red-wine",
 };
+```
+
+- [ ] **Step 3: Write the image-map builder**
+
+Matching is done **once, offline, into a file a human can read and correct** — not at runtime. `scripts/build-image-map.ts`:
+
+```ts
+import { readdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { slugify } from "../src/lib/slug";
+import { FOLDER_TO_CATEGORY } from "./image-folders";
+
+const ROOT = process.cwd();
+const SRC = path.join(ROOT, "assets/original-images");
+const OUT = path.join(ROOT, "assets/image-map.json");
 
 const tokens = (s: string) => new Set(slugify(s).split("-").filter(Boolean));
 
@@ -1234,7 +1274,7 @@ async function main() {
 main().catch((e) => { console.error(e); process.exit(1); });
 ```
 
-- [ ] **Step 3: Write the WebP converter**
+- [ ] **Step 4: Write the WebP converter**
 
 `scripts/optimize-images.ts`:
 
@@ -1242,18 +1282,12 @@ main().catch((e) => { console.error(e); process.exit(1); });
 import { readdir, mkdir } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
-import { slugify } from "../src/lib/slug.ts";
+import { slugify } from "../src/lib/slug";
+import { FOLDER_TO_CATEGORY } from "./image-folders";
 
 const ROOT = process.cwd();
 const SRC = path.join(ROOT, "assets/original-images");
 const OUT = path.join(ROOT, "public/images");
-
-const FOLDER_TO_CATEGORY: Record<string, string> = {
-  Arak: "arak", Beer: "beer", Cocktails: "cocktails", Cognac: "cognac",
-  Gin: "gin", Liquir: "liqueur", "Rose Wine": "rose-wine", Rum: "rum",
-  Soft: "soft-drinks", "Sparkling Wine": "sparkling-wine", Tequila: "tequila",
-  Vodka: "vodka", Whisky: "whisky", "White wine": "white-wine", Wine: "red-wine",
-};
 
 async function main() {
   let count = 0;
@@ -1282,7 +1316,7 @@ main().catch((e) => { console.error(e); process.exit(1); });
 
 `next/image` generates the smaller responsive sizes at request time on Vercel, so one 800px source per drink is enough. The logo is copied separately in Task 7.
 
-- [ ] **Step 4: Run both scripts, then regenerate the menu**
+- [ ] **Step 5: Run both scripts, then regenerate the menu**
 
 ```bash
 npm run build:images
@@ -1292,15 +1326,20 @@ npm run build:menu
 
 Expected: `public/images/` holds ~88 WebP files well under 1 MB total; `assets/image-map.json` maps almost every item; `build:menu` now reports very few items without a photo.
 
-- [ ] **Step 5: Review the unmatched list by hand**
+- [ ] **Step 6: Review the unmatched list by hand**
 
 Read the "Unmatched" output. Per the spec, **Miller is expected to have no photo**. If anything else is unmatched, add an explicit entry to `assets/image-map.json` by hand — the file exists precisely so a human can override the matcher. Re-run `npm run build:menu` after editing.
 
-- [ ] **Step 6: Verify the photos landed on the right drinks**
+- [ ] **Step 7: Verify the photos landed on the right drinks**
 
-Run: `npm run dev`, open `http://localhost:3000/en` after Task 8 is done. For now, spot-check five entries in `assets/image-map.json` against `public/images/` filenames — for example `whisky__jack-daniels` must not point at a Jameson bottle.
+Spot-check at least eight entries in `assets/image-map.json` against the
+filenames in `public/images/` — `whisky__jack-daniels` must not point at a
+Jameson bottle, `gin__gordons-gin` must not point at Tanqueray. Correct any
+wrong entry by hand and re-run `npm run build:menu`.
 
-- [ ] **Step 7: Commit**
+There is no page to look at yet; the in-browser check happens in Task 8.
+
+- [ ] **Step 8: Commit**
 
 ```bash
 git add scripts/build-image-map.ts scripts/optimize-images.ts assets/image-map.json \
@@ -1586,7 +1625,11 @@ its background, which shows as a visible box on any non-black surface.
 
 - [ ] **Step 2: Reduce the root layout to a pass-through**
 
-The real `<html>` element is owned by the locale layout, because `lang` and `dir` depend on the route. `src/app/layout.tsx`:
+Task 1 gave the root layout a real `<html>`/`<body>` so its build check could
+pass. Now that `app/[lang]/layout.tsx` renders the document element — `lang`
+and `dir` depend on the route, so it must — the root layout has to stop
+rendering one, or there will be two nested `<html>` elements. Replace the file
+entirely. `src/app/layout.tsx`:
 
 ```tsx
 import "./globals.css";
@@ -1992,13 +2035,21 @@ export function MenuBrowser({
 
 Run: `npm run build && npm start`
 
+**Product names keep the exact casing they have in `src/data/menu.json`** — the
+spec forbids transforming them, so several are upper-case (`JOHNNIE WALKER RED
+LABEL`) while others are not (`Toma`). Read the real string out of the data
+before asserting on it:
+
 ```bash
-curl -s http://localhost:3000/en | grep -c "Johnnie Walker"
+node -e "console.log(require('./src/data/menu.json').items.slice(0,5).map(i=>i.name))"
+curl -s http://localhost:3000/en | grep -ci "johnnie walker"
 ```
 
-Expected: at least 1. The drink names must be in the **server HTML**. If the count is 0, the menu is being rendered client-side only and the no-JS requirement is broken.
+Expected: a non-zero count. The drink names must be in the **server HTML**. If the count is 0, the menu is being rendered client-side only and the no-JS requirement is broken.
 
-Also open `http://localhost:3000/ar` in a browser and confirm the layout mirrors and prices sit on the correct side.
+Also open `http://localhost:3000/ar` in a browser and confirm the layout
+mirrors, prices sit on the correct side, and the drink photos are on the right
+drinks (this is the in-browser check deferred from Task 5).
 
 - [ ] **Step 8: Commit**
 
@@ -2411,8 +2462,10 @@ const iqd = (value: number) => ({ currency: "IQD" as const, value });
 const items: MenuItem[] = [
   { id: "beer__corona", name: "Corona", category: "Beer",
     glass: iqd(10000), bottle: null, available: true, image: null, tags: [] },
+  // Deliberately distinct from Corona's 10,000: getByText throws when two
+  // elements carry the same text.
   { id: "whisky__jack-daniels", name: "Jack Daniels", category: "Whisky",
-    glass: iqd(10000), bottle: iqd(160000), available: true, image: null, tags: [] },
+    glass: iqd(13000), bottle: iqd(160000), available: true, image: null, tags: [] },
   { id: "tequila__patron-silver", name: "Patron Silver", category: "Tequila",
     glass: iqd(15000), bottle: { currency: "USD", value: 200 },
     available: true, image: null, tags: [] },
@@ -2455,6 +2508,7 @@ describe("MenuBrowser", () => {
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue({ ok: true, json: async () => ({ source: "baked", items: [] }) }));
     render(<MenuBrowser initialItems={items} dict={dict} />);
     await waitFor(() => expect(screen.getByText("10,000")).toBeInTheDocument());
+    expect(screen.getByText("13,000")).toBeInTheDocument();
     expect(screen.getByText("160,000")).toBeInTheDocument();
   });
 
@@ -3013,9 +3067,15 @@ The mobile viewport is the real one — this menu is only ever opened by scannin
 ```ts
 import { test, expect } from "@playwright/test";
 
+// Product names are NOT case-normalised (see Global Constraints), so these
+// specs match case-insensitively rather than hard-coding a casing that the
+// client may later change in their spreadsheet.
+const JW = /johnnie walker red label/i;
+const CORONA = /^corona$/i;
+
 test("renders the menu with prices", async ({ page }) => {
   await page.goto("/en");
-  await expect(page.getByText("Johnnie Walker Red Label")).toBeVisible();
+  await expect(page.getByText(JW)).toBeVisible();
   await expect(page.getByText("Glass").first()).toBeVisible();
 });
 
@@ -3042,14 +3102,14 @@ test("all three languages are reachable from the switch", async ({ page }) => {
 test("search narrows the list", async ({ page }) => {
   await page.goto("/en");
   await page.getByRole("searchbox").fill("corona");
-  await expect(page.getByText("Corona")).toBeVisible();
-  await expect(page.getByText("Johnnie Walker Red Label")).toBeHidden();
+  await expect(page.getByText(CORONA)).toBeVisible();
+  await expect(page.getByText(JW)).toBeHidden();
 });
 
 test("the menu still renders with the API unreachable", async ({ page }) => {
   await page.route("**/api/menu", (route) => route.abort());
   await page.goto("/en");
-  await expect(page.getByText("Johnnie Walker Red Label")).toBeVisible();
+  await expect(page.getByText(JW)).toBeVisible();
 });
 
 test("no leftover template branding", async ({ page }) => {
@@ -3061,7 +3121,7 @@ test("no leftover template branding", async ({ page }) => {
 - [ ] **Step 4: Run the suite**
 
 Run: `npm run test:e2e`
-Expected: all 7 pass. If a drink name in a test does not exist, check `src/data/menu.json` and use a real one — do not delete the assertion.
+Expected: all 7 pass. If a drink name in a test does not exist, check `src/data/menu.json` and use a real one — do not delete the assertion. Match names case-insensitively; do not "fix" the casing in the data.
 
 - [ ] **Step 5: Run the whole test suite**
 
