@@ -1,0 +1,1336 @@
+{
+  "generatedAt": "2026-09-06T12:54:51.468Z",
+  "items": [
+    {
+      "id": "cocktails__blue-lagoon",
+      "name": "Blue lagoon",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__bull-fruge",
+      "name": "Bull fruge",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__crown-signature",
+      "name": "Crown Signature",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__london-mule",
+      "name": "London mule",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__long-island-ice-tea",
+      "name": "Long Island ice tea",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__margarita",
+      "name": "Margarita",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__mojito-classic",
+      "name": "Mojito classic",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__nigroni",
+      "name": "Nigroni",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__old-fashioned",
+      "name": "Old fashioned",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__pina-colada",
+      "name": "Pina colada",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__sex-on-the-beach",
+      "name": "Sex on the beach",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__whiskey-sour",
+      "name": "Whiskey sour",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "soft-drinks__ginger-beer",
+      "name": "ginger beer",
+      "category": "Soft Drinks",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "soft-drinks__pepsi-7up-merinda",
+      "name": "Pepsi - 7up  - Merinda",
+      "category": "Soft Drinks",
+      "glass": {
+        "currency": "IQD",
+        "value": 5000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "soft-drinks__red-bull",
+      "name": "Red Bull",
+      "category": "Soft Drinks",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "soft-drinks__soda",
+      "name": "soda",
+      "category": "Soft Drinks",
+      "glass": {
+        "currency": "IQD",
+        "value": 5000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "soft-drinks__soda-lemon",
+      "name": "soda lemon",
+      "category": "Soft Drinks",
+      "glass": {
+        "currency": "IQD",
+        "value": 5000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "soft-drinks__tonic-water",
+      "name": "tonic water",
+      "category": "Soft Drinks",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "beer__almaza",
+      "name": "Almaza",
+      "category": "Beer",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "beer__budweiser",
+      "name": "budweiser",
+      "category": "Beer",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "beer__corona",
+      "name": "Corona",
+      "category": "Beer",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "beer__heineken",
+      "name": "Heineken",
+      "category": "Beer",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "beer__miller",
+      "name": "miller",
+      "category": "Beer",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "arak__beylerbeyi-raki-gobek",
+      "name": "BEYLERBEYI RAKI GOBEK",
+      "category": "Arak",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "arak__ouzo-gold-7y",
+      "name": "ouzo gold 7y",
+      "category": "Arak",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "arak__tekirdag-raki-blue",
+      "name": "tekirdag raki blue",
+      "category": "Arak",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "arak__tekirdag-raki-gold",
+      "name": "tekirdag raki gold",
+      "category": "Arak",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "arak__toma",
+      "name": "toma",
+      "category": "Arak",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cognac__hennessy-cognac-v-s",
+      "name": "1.     Hennessy Cognac V.S",
+      "category": "Cognac",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cognac__hennessy-cognac-v-s-o-p",
+      "name": "2.     Hennessy Cognac V.S.O.P",
+      "category": "Cognac",
+      "glass": {
+        "currency": "IQD",
+        "value": 25000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cognac__karavan-canelle",
+      "name": "karavan canelle",
+      "category": "Cognac",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "gin__bombay-sapphire-gin",
+      "name": "BOMBAY SAPPHIRE GIN",
+      "category": "Gin",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 175000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "gin__gordons-gin",
+      "name": "Gordons Gin",
+      "category": "Gin",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 100000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "gin__hendricks-gin",
+      "name": "HENDRICKS GIN",
+      "category": "Gin",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 200000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "gin__roku-japanese-crafted-gin",
+      "name": "ROKU JAPANESE CRAFTED GIN",
+      "category": "Gin",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 225000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "gin__tanqueray",
+      "name": "Tanqueray",
+      "category": "Gin",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 200000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "rum__bacardi-carta-blanca",
+      "name": "BACARDI CARTA BLANCA",
+      "category": "Rum",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "rum__bacardi-carta-negra",
+      "name": "BACARDI CARTA NEGRA",
+      "category": "Rum",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "rum__captain-morgan",
+      "name": "captain Morgan",
+      "category": "Rum",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "rum__captain-morgan-black",
+      "name": "captain Morgan black",
+      "category": "Rum",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "rum__captin-morgan-gold",
+      "name": "captin morgan gold",
+      "category": "Rum",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "rum__malibu",
+      "name": "malibu",
+      "category": "Rum",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "liqueur__absent",
+      "name": "absent",
+      "category": "Liqueur",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "liqueur__baileys",
+      "name": "BAILEYS",
+      "category": "Liqueur",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "liqueur__campari",
+      "name": "CAMPARI",
+      "category": "Liqueur",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "liqueur__jagermeister",
+      "name": "JAGERMEISTER",
+      "category": "Liqueur",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 200000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "liqueur__kahlua-coffee-liqueur",
+      "name": "KAHLUA COFFEE LIQUEUR",
+      "category": "Liqueur",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "liqueur__martini-rosso",
+      "name": "MARTINI ROSSO",
+      "category": "Liqueur",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "tequila__olmeca-tequila-reposado",
+      "name": "OLMECA TEQUILA REPOSADO",
+      "category": "Tequila",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 200000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "tequila__olmeca-tequila-silver",
+      "name": "OLMECA TEQUILA SILVER",
+      "category": "Tequila",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 200000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "tequila__patron-gold",
+      "name": "patron gold",
+      "category": "Tequila",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "tequila__patron-silver",
+      "name": "patron silver",
+      "category": "Tequila",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "USD",
+        "value": 200
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "vodka__absolut",
+      "name": "ABSOLUT",
+      "category": "Vodka",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 130000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "vodka__beluga-export-noble",
+      "name": "BELUGA EXPORT NOBLE",
+      "category": "Vodka",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 200000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "vodka__belvedere",
+      "name": "BELVEDERE",
+      "category": "Vodka",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 200000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "vodka__finlandia",
+      "name": "Finlandia",
+      "category": "Vodka",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "vodka__grey-goose",
+      "name": "GREY GOOSE",
+      "category": "Vodka",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 200000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "vodka__stoli",
+      "name": "STOLI",
+      "category": "Vodka",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 130000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "vodka__titos-handmade-vodka",
+      "name": "TITOS HANDMADE VODKA",
+      "category": "Vodka",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__bushmills",
+      "name": "BUSHMILLS",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__bushmills-black",
+      "name": "BUSHMILLS BLACK",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__chivas-regal-12yo",
+      "name": "CHIVAS REGAL 12YO",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 175000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__chivas-regal-18yo",
+      "name": "CHIVAS REGAL 18YO",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 225000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__glenfiddich-single-malt-12yo",
+      "name": "GLENFIDDICH SINGLE MALT 12YO",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 175000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__glenfiddich-single-malt-15yo",
+      "name": "GLENFIDDICH SINGLE MALT 15YO",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 225000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__jack-daniels",
+      "name": "JACK DANIELS",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 160000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__jack-daniels-apple",
+      "name": "JACK DANIELS APPLE",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 170000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__jack-daniels-fire",
+      "name": "JACK DANIELS FIRE",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 180000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__jack-daniels-honey",
+      "name": "JACK DANIELS HONEY",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 170000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__jameson-crested",
+      "name": "JAMESON CRESTED",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__johnnie-walker-black-label",
+      "name": "JOHNNIE WALKER BLACK LABEL",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 170000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__johnnie-walker-double-black",
+      "name": "JOHNNIE WALKER DOUBLE BLACK",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 200000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__johnnie-walker-gold-label",
+      "name": "JOHNNIE WALKER GOLD LABEL",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 250000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__johnnie-walker-red-label",
+      "name": "JOHNNIE WALKER RED LABEL",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 130000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "whisky__woodford-reserve",
+      "name": "WOODFORD RESERVE",
+      "category": "Whisky",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 225000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "red-wine__frontera-cabernet-sauvignon",
+      "name": "FRONTERA CABERNET SAUVIGNON",
+      "category": "Red Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "red-wine__frontera-sweet-selection",
+      "name": "FRONTERA SWEET SELECTION",
+      "category": "Red Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "red-wine__jacobs-greek-merlot",
+      "name": "JACOBS GREEK MERLOT",
+      "category": "Red Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "red-wine__jacobs-greek-shiraz",
+      "name": "JACOBS GREEK SHIRAZ",
+      "category": "Red Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "red-wine__ksara-cabernet-sauvignon",
+      "name": "Ksara CABERNET SAUVIGNON",
+      "category": "Red Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 175000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "red-wine__trivento-malbec",
+      "name": "TRIVENTO MALBEC",
+      "category": "Red Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 175000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "white-wine__b-g-sauvignon-blanc",
+      "name": "B&G Sauvignon Blanc",
+      "category": "White Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 175000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "white-wine__jacobs-greek-chardonny",
+      "name": "JACOBS GREEK chardonny",
+      "category": "White Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "white-wine__jacobs-greek-riesling",
+      "name": "JACOBS GREEK riesling",
+      "category": "White Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "white-wine__ksara-blanc-de-blanc",
+      "name": "Ksara Blanc de Blanc",
+      "category": "White Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 175000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "white-wine__sinsi-white",
+      "name": "sinsi white",
+      "category": "White Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 175000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "rose-wine__jacobs-greek-rose",
+      "name": "JACOBS GREEK rose",
+      "category": "Rose Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "rose-wine__ksara-rose",
+      "name": "Ksara rose",
+      "category": "Rose Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 175000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "sparkling-wine__piccini-prosecco",
+      "name": "PICCINI PROSECCO",
+      "category": "Sparkling Wine",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": {
+        "currency": "IQD",
+        "value": 150000
+      },
+      "available": true,
+      "image": null,
+      "tags": []
+    }
+  ]
+}
