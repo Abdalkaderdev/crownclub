@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0c0a0b;
+  --color-panel: #1e1719;
+  --color-saffron: #d9a353;
+  --color-saffron-ink: #241505;
+  --color-cream: #f2e9dc;
+  --color-muted: #a6968a;
+
+  /* The "-loaded" variables come from next/font in the locale layout
+     (Task 7). Binding them here is what actually makes the fonts apply —
+     declaring them in next/font alone does nothing. */
+  --font-display: var(--font-display-loaded), "Bricolage Grotesque", sans-serif;
+  --font-body: var(--font-body-loaded), "Manrope", system-ui, sans-serif;
+  --font-arabic: var(--font-arabic-loaded), "Noto Kufi Arabic", sans-serif;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+}
+
+/* Arabic and Kurdish are both Arabic script — one face for the whole
+   document, headings included. */
+[dir="rtl"] body,
+[dir="rtl"] h1,
+[dir="rtl"] h2 {
+  font-family: var(--font-arabic);
+}

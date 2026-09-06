@@ -7,7 +7,16 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build:menu": "tsx scripts/build-menu.ts",
+    "build:images": "tsx scripts/optimize-images.ts",
+    "build:imagemap": "tsx scripts/build-image-map.ts",
+    "make:qr": "tsx scripts/make-qr.ts",
+    "make:xlsx": "tsx scripts/make-client-xlsx.ts"
   },
   "repository": {
     "type": "git",
@@ -25,5 +34,19 @@
     "next": "^15.5.25",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^26.4.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "^30.0.1",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
   }
 }
