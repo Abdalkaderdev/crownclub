@@ -62,6 +62,69 @@ describe("parsePrice", () => {
   });
 });
 
+// These came out of an adversarial review round (probing the real module,
+// not just re-reading the spec) that found three ways the negative-number
+// guard could be bypassed, a way two prices in one cell could silently
+// concatenate into a single plausible-looking wrong price, and a missed
+// "USD" currency word. Each defect below is paired with the exact input
+// that exposed it.
+describe("parsePrice — adversarial review fixes (fix round 1)", () => {
+  it("rejects accounting-style negatives in parentheses (no hyphen present)", () => {
+    expect(parsePrice("(10000)")).toEqual({ kind: "none" });
+  });
+
+  it("rejects the Unicode minus sign U+2212 (Excel/Word autocorrect substitute for a hyphen)", () => {
+    expect(parsePrice("−10iqd")).toEqual({ kind: "none" });
+  });
+
+  it("rejects a hyphen even when a $ sits between it and the digits", () => {
+    expect(parsePrice("-$10")).toEqual({ kind: "none" });
+  });
+
+  it("rejects two numbers separated by a slash rather than concatenating them", () => {
+    expect(parsePrice("15000/20000")).toEqual({ kind: "none" });
+  });
+
+  it("rejects two numbers separated by a space rather than concatenating them", () => {
+    expect(parsePrice("15 20")).toEqual({ kind: "none" });
+  });
+
+  it("recognizes the word USD as a currency marker, in either order", () => {
+    expect(parsePrice("200 USD")).toEqual({ kind: "foreign", currency: "USD", value: 200 });
+    expect(parsePrice("USD 200")).toEqual({ kind: "foreign", currency: "USD", value: 200 });
+  });
+
+  it("rejects a Date object rather than misreading it as a numeric timestamp", () => {
+    expect(parsePrice(new Date("2026-01-01"))).toEqual({ kind: "none" });
+  });
+
+  it("rejects a boolean", () => {
+    expect(parsePrice(true)).toEqual({ kind: "none" });
+  });
+
+  it("rejects an array", () => {
+    expect(parsePrice([])).toEqual({ kind: "none" });
+  });
+
+  it("rejects a plain object", () => {
+    expect(parsePrice({})).toEqual({ kind: "none" });
+  });
+
+  it("keeps comma-grouped thousands separators working (regression guard)", () => {
+    expect(parsePrice("15,000")).toEqual({ kind: "iqd", value: 15000 });
+    expect(parsePrice("$1,500")).toEqual({ kind: "foreign", currency: "USD", value: 1500 });
+  });
+
+  it("rejects an IQD figure above the 100,000,000 upper bound", () => {
+    expect(parsePrice(100_000_001)).toEqual({ kind: "none" });
+    expect(parsePrice("150000000iqd")).toEqual({ kind: "none" });
+  });
+
+  it("allows an IQD figure exactly at the 100,000,000 upper bound", () => {
+    expect(parsePrice(100_000_000)).toEqual({ kind: "iqd", value: 100_000_000 });
+  });
+});
+
 describe("toMoney", () => {
   it("tags IQD", () => {
     expect(toMoney({ kind: "iqd", value: 15000 })).toEqual({ currency: "IQD", value: 15000 });

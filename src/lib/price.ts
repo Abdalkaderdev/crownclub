@@ -7,6 +7,11 @@ export type PriceParse =
 
 const NONE: PriceParse = { kind: "none" };
 
+// Real menu items top out around a 250,000 IQD premium bottle. Anything
+// past 100,000,000 is a fat-fingered extra zero, not a real price — reject
+// it outright rather than show a customer an absurd number.
+const IQD_UPPER_BOUND = 100_000_000;
+
 /** Scale a raw figure to dinars. The spreadsheet writes 15,000 IQD as
  *  either `15000` or `15iqd`, so anything under 1000 is shorthand for
  *  thousands. Validated against 70 items present in both data sources
@@ -14,8 +19,23 @@ const NONE: PriceParse = { kind: "none" };
 function scale(n: number): PriceParse {
   if (!Number.isFinite(n) || n <= 0) return NONE;
   const value = Math.round(n < 1000 ? n * 1000 : n);
-  return value > 0 ? { kind: "iqd", value } : NONE;
+  return value > 0 && value <= IQD_UPPER_BOUND ? { kind: "iqd", value } : NONE;
 }
+
+// Any dash-like glyph: ASCII hyphen, the general hyphen/dash block
+// (U+2010-U+2015), and the Unicode minus sign U+2212 — what Excel/Word
+// autocorrect substitutes for a typed hyphen. A price cell has no
+// legitimate reason to contain a dash, so reject outright rather than try
+// to parse around it.
+const DASH_LIKE = /[\u002D\u2010-\u2015\u2212]/;
+
+// Accounting-style negatives, e.g. "(10000)".
+const PAREN_WRAPPED = /^\(.*\)$/;
+
+const USD_WORD = /\busd\b/i;
+
+// A single run of digits, with optional comma grouping and a decimal tail.
+const NUMBER_RE = /\d[\d,]*(?:\.\d+)?/g;
 
 export function parsePrice(input: unknown): PriceParse {
   if (input === null || input === undefined) return NONE;
@@ -27,19 +47,23 @@ export function parsePrice(input: unknown): PriceParse {
   const raw = input.trim();
   if (!raw) return NONE;
 
-  const negative = /-\s*\d/.test(raw);
+  if (DASH_LIKE.test(raw) || PAREN_WRAPPED.test(raw)) return NONE;
 
-  if (raw.includes("$")) {
-    const n = Number.parseFloat(raw.replace(/[^\d.]/g, ""));
-    if (!Number.isFinite(n) || n <= 0 || negative) return NONE;
-    return { kind: "foreign", currency: "USD", value: n };
-  }
+  const isUsd = raw.includes("$") || USD_WORD.test(raw);
+  const stripped = raw.replace(/\$/g, "").replace(/usd/gi, "").replace(/iqd/gi, "");
 
-  const digits = raw.replace(/iqd/gi, "").replace(/[^\d.]/g, "");
-  if (!digits) return NONE;
+  // Exactly one number, or it's unparseable/ambiguous. A cell with zero
+  // numbers has nothing to price; a cell with two or more (a size range, a
+  // pair of variant prices) is ambiguous, and guessing at an ambiguous
+  // price is worse than showing "Ask staff".
+  const matches = stripped.match(NUMBER_RE);
+  if (!matches || matches.length !== 1) return NONE;
 
-  const n = Number.parseFloat(digits);
-  if (negative) return NONE;
+  const n = Number.parseFloat(matches[0].replace(/,/g, ""));
+  if (!Number.isFinite(n) || n <= 0) return NONE;
+
+  if (isUsd) return { kind: "foreign", currency: "USD", value: n };
+
   return scale(n);
 }
 
