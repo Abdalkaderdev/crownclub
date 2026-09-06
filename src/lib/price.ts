@@ -32,7 +32,11 @@ const DASH_LIKE = /[\u002D\u2010-\u2015\u2212]/;
 // Accounting-style negatives, e.g. "(10000)".
 const PAREN_WRAPPED = /^\(.*\)$/;
 
-const USD_WORD = /\busd\b/i;
+// No word boundaries: a price cell containing the letters "usd" for any
+// reason other than dollars is not a real scenario, and staff hand-typing
+// prices into a spreadsheet will write "200usd" with no space just as
+// often as "200 USD".
+const USD_WORD = /usd/i;
 
 // A single run of digits, with optional comma grouping and a decimal tail.
 const NUMBER_RE = /\d[\d,]*(?:\.\d+)?/g;

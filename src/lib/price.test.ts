@@ -123,6 +123,21 @@ describe("parsePrice — adversarial review fixes (fix round 1)", () => {
   it("allows an IQD figure exactly at the 100,000,000 upper bound", () => {
     expect(parsePrice(100_000_000)).toEqual({ kind: "iqd", value: 100_000_000 });
   });
+
+  it("recognizes USD with no space and no word boundary between the digits and the letters", () => {
+    expect(parsePrice("200usd")).toEqual({ kind: "foreign", currency: "USD", value: 200 });
+    expect(parsePrice("200USD")).toEqual({ kind: "foreign", currency: "USD", value: 200 });
+    expect(parsePrice("usd200")).toEqual({ kind: "foreign", currency: "USD", value: 200 });
+  });
+
+  it("keeps every other USD/IQD notation working after dropping the word-boundary requirement", () => {
+    expect(parsePrice("200 USD")).toEqual({ kind: "foreign", currency: "USD", value: 200 });
+    expect(parsePrice("USD 200")).toEqual({ kind: "foreign", currency: "USD", value: 200 });
+    expect(parsePrice("$200")).toEqual({ kind: "foreign", currency: "USD", value: 200 });
+    expect(parsePrice("200$")).toEqual({ kind: "foreign", currency: "USD", value: 200 });
+    expect(parsePrice("10iqd")).toEqual({ kind: "iqd", value: 10000 });
+    expect(parsePrice("15000")).toEqual({ kind: "iqd", value: 15000 });
+  });
 });
 
 describe("toMoney", () => {
