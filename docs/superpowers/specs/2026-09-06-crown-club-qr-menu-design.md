@@ -53,7 +53,17 @@ The Excel writes prices four different ways: `5iqd`, `10 iqd`, `15000`,
 1. Strip `iqd`, whitespace, case.
 2. Strip non-numeric characters.
 3. **If the value is under 1000, multiply by 1000.** So `10iqd` becomes 10,000 IQD.
-4. `$` values are flagged for manual conversion, not silently converted.
+4. `$` values **stay in dollars.** They are never converted to IQD, at build
+   time or at runtime.
+
+Because a price can be in either currency, a price is modelled as
+`{ currency: "IQD" | "USD", value: number }` rather than a bare integer. The
+sub-1000 thousands rule applies to IQD only — `200$` is two hundred dollars,
+not two hundred thousand.
+
+Prices display as a bare grouped number for IQD (`15,000`) with a single
+"all prices in IQD unless marked" note on the page, and with an explicit
+symbol for dollars (`$200`) so the exception is unmissable on the card itself.
 
 This was validated by normalising all 75 Excel rows and diffing them against
 the 86 live-sheet rows: **zero glass-price disagreements** across every item
@@ -90,14 +100,14 @@ Glass price missing in Excel, taken from sheet:
 
 - Patron Gold 15,000 · Finlandia 10,000 · Piccini Prosecco 15,000
 
-Bottle price missing entirely (7 items) — render as "Ask staff":
+Bottle price missing entirely (6 items) — render as "Ask staff":
 
 - Captain Morgan, Captain Morgan Black, Captain Morgan Gold, Malibu,
-  Patron Silver, Patron Gold, Finlandia
+  Patron Gold, Finlandia
 
-Open, needs client input:
+Priced in dollars, kept in dollars:
 
-- **Patron Silver bottle is listed as `200$`.** Needs an IQD figure.
+- **Patron Silver bottle, `200$`** — displays as `$200`.
 
 ### Images
 
@@ -187,9 +197,32 @@ Three locales: `en`, `ar`, `ckb` (Sorani Kurdish).
 ## Visual design
 
 Crown's existing identity is kept — this is a rebuild, not a rebrand. Saffron
-`#D9A353` on near-black `#0C0A0B`, the existing Crown logo, rebuilt to the
-polish level of the client's `german-doner.vercel.app`. The stray "Amber & Oak"
-metadata from the old template is removed.
+`#D9A353` on near-black `#0C0A0B`, rebuilt to the polish level of the client's
+`german-doner.vercel.app`. The stray "Amber & Oak" metadata from the old
+template is removed.
+
+### Logo
+
+The client supplied a print file for table decals
+(`assets/logo/source-table-decal-sheet.pdf`). The Crown Club mark in it is
+**fully vector** — 177 paths, no embedded fonts, no bitmap — so it was
+extracted cleanly to `assets/logo/`:
+
+| File | Use |
+|---|---|
+| `crown-logo-cream.svg` | The site. Transparent, recoloured `#F2E9DC` for the dark ground. |
+| `crown-logo-black.svg` | Print and light backgrounds. |
+| `crown-logo-{cream,black}.png` | 3269 x 2419 raster fallbacks. |
+
+This replaces the old site's `Crown-logo2.png`, a 296 KB raster with a black
+rectangle baked into its background.
+
+### Defect found in the supplied print file
+
+Every one of the four table decals on that sheet carries a QR code encoding
+`https://www.instagram.com/babilu.iq` — an unrelated Instagram account, not
+Crown Club's and not the menu. **The sheet must not go to print as it stands.**
+The decals need re-laying-out with the QR generated in this project.
 
 ## Error handling
 
@@ -232,11 +265,11 @@ Playwright smoke: page loads; all three languages switch; `dir=rtl` applies for
 
 ## Open questions
 
-1. Patron Silver bottle price in IQD (currently `200$`).
-2. Keep or drop Bacardi Carta Blanca and Carta Negra?
-3. Photos for Miller and Captain Morgan Black.
-4. Native review of the Sorani Kurdish copy.
+1. Keep or drop Bacardi Carta Blanca and Carta Negra?
+2. Photos for Miller and Captain Morgan Black.
+3. Native review of the Sorani Kurdish copy.
 
-None of these block the build. Each has a defined fallback: items with no
-bottle price show "Ask staff", missing photos use the category image, and
-Bacardi is included until the client says otherwise.
+None of these block the build. Each has a defined fallback: missing photos use
+the category image, and Bacardi is included until the client says otherwise.
+
+**Resolved:** dollar prices stay in dollars (client, 2026-09-06).
