@@ -5,6 +5,8 @@ import type { MenuItem } from "./menu-schema";
 const item = (over: Partial<MenuItem> = {}): MenuItem => ({
   id: "whisky__x",
   name: "X",
+  nameAr: null,
+  nameCkb: null,
   category: "Whisky",
   glass: { currency: "IQD", value: 10000 },
   bottle: null,
@@ -27,7 +29,7 @@ describe("parseGvizCsv", () => {
       '"Category","Name","Description","Price","Bottle","Available","Tags"' + NL +
       '"Beer","Corona","","10000","","yes",""' + NL;
     expect(parseGvizCsv(csv)).toEqual([
-      { category: "Beer", name: "Corona", glass: "10000", bottle: "", available: "yes" },
+      { category: "Beer", name: "Corona", nameAr: "", nameCkb: "", glass: "10000", bottle: "", available: "yes" },
     ]);
   });
 
@@ -38,6 +40,7 @@ describe("parseGvizCsv", () => {
     expect(parseGvizCsv(csv)[0]).toEqual({
       category: "Whisky",
       name: "Jack Daniels",
+      nameAr: "", nameCkb: "",
       glass: "10000",
       bottle: "160000",
       available: "yes",

@@ -3,16 +3,18 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import { formatMoney } from "@/lib/price";
-import type { MenuItem } from "@/lib/menu-schema";
+import { displayName, type MenuItem } from "@/lib/menu-schema";
 import type { Dictionary } from "@/i18n/get-dictionary";
 
 export function PhotoSheet({
   item,
   dict,
+  locale,
   onClose,
 }: {
   item: MenuItem | null;
   dict: Dictionary;
+  locale: string;
   onClose: () => void;
 }) {
   useEffect(() => {
@@ -28,7 +30,7 @@ export function PhotoSheet({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label={item.name}
+      aria-label={displayName(item, locale)}
       onClick={onClose}
       className="fixed inset-0 z-50 grid place-items-center bg-black/85 p-6"
     >
@@ -47,12 +49,12 @@ export function PhotoSheet({
       <div className="text-center" onClick={(e) => e.stopPropagation()}>
         <Image
           src={item.image}
-          alt={item.name}
+          alt={displayName(item, locale)}
           width={420}
           height={560}
           className="mx-auto h-auto w-full max-w-[320px] rounded-2xl object-contain"
         />
-        <p className="mt-3 font-semibold">{item.name}</p>
+        <p className="mt-3 font-semibold">{displayName(item, locale)}</p>
         <p className="text-saffron mt-1 text-sm tabular-nums" dir="ltr">
           {[
             item.glass && `${dict.glass} ${formatMoney(item.glass)}`,

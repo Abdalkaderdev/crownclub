@@ -11,13 +11,19 @@ const iqd = (value: number) => ({ currency: "IQD" as const, value });
 
 const items: MenuItem[] = [
   { id: "beer__corona", name: "Corona", category: "Beer",
+    nameAr: null, nameCkb: null,
     glass: iqd(10000), bottle: null, available: true, image: null, tags: [] },
   // Deliberately distinct from Corona's 10,000: getByText throws on duplicates.
   { id: "whisky__jack-daniels", name: "Jack Daniels", category: "Whisky",
+    nameAr: null, nameCkb: null,
     glass: iqd(13000), bottle: iqd(160000), available: true, image: null, tags: [] },
   { id: "tequila__patron-silver", name: "Patron Silver", category: "Tequila",
+    nameAr: null, nameCkb: null,
     glass: iqd(15000), bottle: { currency: "USD", value: 200 },
     available: true, image: null, tags: [] },
+  { id: "salads__jajik", name: "Jajik", category: "Salads",
+    nameAr: "جاجيك", nameCkb: "جاجیک",
+    glass: iqd(10000), bottle: null, available: true, image: null, tags: [] },
 ];
 
 const baked = () =>
@@ -48,7 +54,7 @@ describe("applyLive", () => {
 
   it("leaves items absent from the live payload untouched", () => {
     const out = applyLive(items, [{ ...items[0], glass: iqd(12000) }]);
-    expect(out).toHaveLength(3);
+    expect(out).toHaveLength(4);
     expect(out[1].glass).toEqual(iqd(13000));
   });
 
@@ -63,17 +69,52 @@ describe("applyLive", () => {
   });
 });
 
+describe("localised names", () => {
+  it("shows the Latin name in English", () => {
+    baked();
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
+    expect(screen.getByText("Jajik")).toBeInTheDocument();
+  });
+
+  it("shows the Arabic name in Arabic", () => {
+    baked();
+    render(<MenuBrowser initialItems={items} dict={getDictionary("ar")} locale="ar" />);
+    expect(screen.getByText("جاجيك")).toBeInTheDocument();
+    expect(screen.queryByText("Jajik")).not.toBeInTheDocument();
+  });
+
+  it("shows the Kurdish name in Kurdish", () => {
+    baked();
+    render(<MenuBrowser initialItems={items} dict={getDictionary("ckb")} locale="ckb" />);
+    expect(screen.getByText("جاجیک")).toBeInTheDocument();
+  });
+
+  it("falls back to the Latin name for brands with no translation", () => {
+    baked();
+    render(<MenuBrowser initialItems={items} dict={getDictionary("ar")} locale="ar" />);
+    expect(screen.getByText("Jack Daniels")).toBeInTheDocument();
+  });
+
+  it("finds an item by its Arabic name while browsing in English", async () => {
+    baked();
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
+    await userEvent.type(screen.getByRole("searchbox"), "جاجيك");
+    expect(screen.getByText("Jajik")).toBeInTheDocument();
+    expect(screen.queryByText("Corona")).not.toBeInTheDocument();
+  });
+});
+
 describe("MenuBrowser", () => {
   it("shows every item initially", () => {
     baked();
-    render(<MenuBrowser initialItems={items} dict={dict} />);
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
     expect(screen.getByText("Corona")).toBeInTheDocument();
     expect(screen.getByText("Jack Daniels")).toBeInTheDocument();
   });
 
   it("filters as you type, case-insensitively", async () => {
     baked();
-    render(<MenuBrowser initialItems={items} dict={dict} />);
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
     await userEvent.type(screen.getByRole("searchbox"), "coro");
     expect(screen.getByText("Corona")).toBeInTheDocument();
     expect(screen.queryByText("Jack Daniels")).not.toBeInTheDocument();
@@ -81,14 +122,14 @@ describe("MenuBrowser", () => {
 
   it("shows a message when nothing matches", async () => {
     baked();
-    render(<MenuBrowser initialItems={items} dict={dict} />);
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
     await userEvent.type(screen.getByRole("searchbox"), "zzzz");
     expect(screen.getByText(dict.noResults)).toBeInTheDocument();
   });
 
   it("filters by category chip", async () => {
     baked();
-    render(<MenuBrowser initialItems={items} dict={dict} />);
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
     await userEvent.click(screen.getByRole("button", { name: "Beer" }));
     expect(screen.getByText("Corona")).toBeInTheDocument();
     expect(screen.queryByText("Jack Daniels")).not.toBeInTheDocument();
@@ -96,41 +137,42 @@ describe("MenuBrowser", () => {
 
   it("shows a dollar bottle price with its symbol", () => {
     baked();
-    render(<MenuBrowser initialItems={items} dict={dict} />);
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
     expect(screen.getByText("$200")).toBeInTheDocument();
   });
 
   it("keeps baked prices when the API reports 'baked'", async () => {
     baked();
-    render(<MenuBrowser initialItems={items} dict={dict} />);
-    await waitFor(() => expect(screen.getByText("10,000")).toBeInTheDocument());
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
+    // Corona and Jajik are both 10,000, so this one is getAllByText.
+    await waitFor(() => expect(screen.getAllByText("10,000")).toHaveLength(2));
     expect(screen.getByText("13,000")).toBeInTheDocument();
     expect(screen.getByText("160,000")).toBeInTheDocument();
   });
 
   it("keeps baked prices when the API request throws", async () => {
     vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("offline")));
-    render(<MenuBrowser initialItems={items} dict={dict} />);
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
     await waitFor(() => expect(screen.getByText("Corona")).toBeInTheDocument());
     expect(screen.getByText("160,000")).toBeInTheDocument();
   });
 
   it("applies a live glass price", async () => {
     live([{ ...items[0], glass: iqd(12000) }]);
-    render(<MenuBrowser initialItems={items} dict={dict} />);
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
     await waitFor(() => expect(screen.getByText("12,000")).toBeInTheDocument());
   });
 
   it("NEVER lets a live refresh erase a bottle price", async () => {
     live([{ ...items[1], glass: iqd(11000), bottle: null }]);
-    render(<MenuBrowser initialItems={items} dict={dict} />);
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
     await waitFor(() => expect(screen.getByText("11,000")).toBeInTheDocument());
     expect(screen.getByText("160,000")).toBeInTheDocument();
   });
 
   it("does not drop baked items that are absent from the live payload", async () => {
     live([{ ...items[0], glass: iqd(12000) }]);
-    render(<MenuBrowser initialItems={items} dict={dict} />);
+    render(<MenuBrowser initialItems={items} dict={dict} locale="en" />);
     await waitFor(() => expect(screen.getByText("12,000")).toBeInTheDocument());
     expect(screen.getByText("Jack Daniels")).toBeInTheDocument();
   });

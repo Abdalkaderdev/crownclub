@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { formatMoney } from "@/lib/price";
 import type { Money } from "@/lib/money";
-import { FOOD_CATEGORIES, type MenuItem } from "@/lib/menu-schema";
+import { FOOD_CATEGORIES, displayName, type MenuItem } from "@/lib/menu-schema";
 import type { Dictionary } from "@/i18n/get-dictionary";
 
 function Price({ label, value, ask }: { label: string; value: Money | null; ask: string }) {
@@ -27,12 +27,16 @@ function Price({ label, value, ask }: { label: string; value: Money | null; ask:
 export function ItemCard({
   item,
   dict,
+  locale,
   onPhoto,
 }: {
   item: MenuItem;
   dict: Dictionary;
+  locale: string;
   onPhoto: (item: MenuItem) => void;
 }) {
+  const label = displayName(item, locale);
+
   return (
     <li
       className={`border-cream/10 flex items-center gap-3 border-b py-3 ${
@@ -43,20 +47,20 @@ export function ItemCard({
         type="button"
         onClick={() => item.image && onPhoto(item)}
         disabled={!item.image}
-        aria-label={item.name}
+        aria-label={label}
         className="bg-panel relative size-14 shrink-0 overflow-hidden rounded-xl transition-transform duration-150 enabled:active:scale-[0.96] disabled:cursor-default"
       >
         {item.image ? (
           <Image src={item.image} alt="" fill sizes="56px" className="object-cover" />
         ) : (
           <span className="text-saffron/50 grid size-full place-items-center text-lg">
-            {item.name.charAt(0).toUpperCase()}
+            {label.charAt(0).toUpperCase()}
           </span>
         )}
       </button>
 
       <div className="min-w-0 flex-1">
-        <p className="truncate font-semibold">{item.name}</p>
+        <p className="truncate font-semibold">{label}</p>
         {/* A badge, not just dimming: opacity alone conveys nothing to a
             screen reader or to anyone who cannot compare it against a
             neighbouring row. */}

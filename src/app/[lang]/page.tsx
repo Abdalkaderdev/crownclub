@@ -17,7 +17,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
   return (
     <div className="mx-auto max-w-[580px] px-4">
       <Hero dict={dict} locale={locale} />
-      <MenuBrowser initialItems={items} dict={dict} />
+      <MenuBrowser initialItems={items} dict={dict} locale={locale} />
       <footer className="text-muted py-8 text-center text-xs">Crown Club</footer>
     </div>
   );

@@ -39,9 +39,11 @@ export function applyLive(baked: MenuItem[], live: MenuItem[]): MenuItem[] {
 export function MenuBrowser({
   initialItems,
   dict,
+  locale,
 }: {
   initialItems: MenuItem[];
   dict: Dictionary;
+  locale: string;
 }) {
   const [items, setItems] = useState(initialItems);
   const [query, setQuery] = useState("");
@@ -73,7 +75,10 @@ export function MenuBrowser({
     return items.filter(
       (i) =>
         (active === null || i.category === active) &&
-        (q === "" || i.name.toLowerCase().includes(q)),
+        (q === "" ||
+          i.name.toLowerCase().includes(q) ||
+          (i.nameAr ?? "").toLowerCase().includes(q) ||
+          (i.nameCkb ?? "").toLowerCase().includes(q)),
     );
   }, [items, query, active]);
 
@@ -98,12 +103,13 @@ export function MenuBrowser({
             category={c}
             items={visible.filter((i) => i.category === c)}
             dict={dict}
+            locale={locale}
             onPhoto={setPhoto}
           />
         ))
       )}
 
-      <PhotoSheet item={photo} dict={dict} onClose={() => setPhoto(null)} />
+      <PhotoSheet item={photo} dict={dict} locale={locale} onClose={() => setPhoto(null)} />
     </main>
   );
 }

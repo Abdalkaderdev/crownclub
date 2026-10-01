@@ -72,6 +72,10 @@ export const FOOD_CATEGORIES: ReadonlySet<Category> = new Set(["Salads", "Steaks
 export const menuItemSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
+  /** Arabic / Sorani names, set only where a translation makes sense.
+   *  Brand names (Johnnie Walker, Grey Goose) stay Latin in every locale. */
+  nameAr: z.string().nullable().default(null),
+  nameCkb: z.string().nullable().default(null),
   category: z.enum(CATEGORIES),
   glass: moneySchema.nullable(),
   bottle: moneySchema.nullable(),
@@ -81,6 +85,14 @@ export const menuItemSchema = z.object({
 });
 
 export type MenuItem = z.infer<typeof menuItemSchema>;
+
+/** The name to show. Falls back to the Latin name when no translation exists,
+ *  which is the normal case: most of this menu is brand names. */
+export function displayName(item: MenuItem, locale: string): string {
+  if (locale === "ar") return item.nameAr || item.name;
+  if (locale === "ckb") return item.nameCkb || item.name;
+  return item.name;
+}
 
 export const menuPayloadSchema = z.object({
   generatedAt: z.string(),
@@ -92,6 +104,8 @@ export type MenuPayload = z.infer<typeof menuPayloadSchema>;
 export interface SourceRow {
   category: string;
   name: string;
+  nameAr?: string;
+  nameCkb?: string;
   glass?: unknown;
   bottle?: unknown;
   available?: string;

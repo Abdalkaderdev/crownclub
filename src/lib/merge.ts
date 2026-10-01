@@ -24,6 +24,8 @@ function keyOf(name: string): string {
 interface Draft {
   key: string;
   name: string;
+  nameAr: string | null;
+  nameCkb: string | null;
   category: Category;
   glass: Money | null;
   bottle: Money | null;
@@ -40,6 +42,8 @@ function toDraft(row: SourceRow): Draft | null {
   return {
     key: keyOf(name),
     name,
+    nameAr: (row.nameAr ?? "").trim() || null,
+    nameCkb: (row.nameCkb ?? "").trim() || null,
     category,
     glass: toMoney(parsePrice(row.glass)),
     bottle: toMoney(parsePrice(row.bottle)),
@@ -74,6 +78,8 @@ export function mergeMenu(excel: SourceRow[], sheet: SourceRow[]): MenuItem[] {
     }
 
     // Excel wins on price; the sheet only fills gaps and sets availability.
+    existing.nameAr ??= draft.nameAr;
+    existing.nameCkb ??= draft.nameCkb;
     existing.glass ??= draft.glass;
     existing.bottle ??= draft.bottle;
     existing.available = draft.available;
@@ -89,6 +95,8 @@ export function mergeMenu(excel: SourceRow[], sheet: SourceRow[]): MenuItem[] {
     .map((d) => ({
       id: `${slugify(d.category)}__${d.key}`,
       name: d.name,
+      nameAr: d.nameAr,
+      nameCkb: d.nameCkb,
       category: d.category,
       glass: d.glass,
       bottle: d.bottle,

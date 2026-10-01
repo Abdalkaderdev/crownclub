@@ -22,7 +22,9 @@ async function main() {
   ws.columns = [
     { header: "Category", key: "category", width: 18 },
     { header: "Name", key: "name", width: 34 },
-    { header: "Description", key: "description", width: 26 },
+    { header: "Name AR", key: "nameAr", width: 24 },
+    { header: "Name CKB", key: "nameCkb", width: 24 },
+    { header: "Description", key: "description", width: 22 },
     { header: "Price", key: "glass", width: 12 },
     { header: "Bottle", key: "bottle", width: 12 },
     { header: "Available", key: "available", width: 11 },
@@ -35,6 +37,8 @@ async function main() {
     ws.addRow({
       category: i.category,
       name: i.name,
+      nameAr: i.nameAr ?? "",
+      nameCkb: i.nameCkb ?? "",
       description: "",
       glass: moneyCell(i.glass),
       bottle: moneyCell(i.bottle),

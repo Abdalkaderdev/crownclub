@@ -47,12 +47,16 @@ export function parseGvizCsv(text: string): SourceRow[] {
   const iName = header.indexOf("name");
   const iPrice = header.indexOf("price");
   const iBottle = header.indexOf("bottle");
+  const iAr = header.indexOf("name ar");
+  const iCkb = header.indexOf("name ckb");
   const iAvail = header.indexOf("available");
   if (iCat < 0 || iName < 0) return [];
 
   return rows.slice(1).map((r) => ({
     category: r[iCat] ?? "",
     name: r[iName] ?? "",
+    nameAr: iAr >= 0 ? (r[iAr] ?? "") : "",
+    nameCkb: iCkb >= 0 ? (r[iCkb] ?? "") : "",
     glass: iPrice >= 0 ? (r[iPrice] ?? "") : "",
     // The client's sheet has a Bottle column; the previous developer's did
     // not. Absent column -> empty -> parses to null, which the merge treats

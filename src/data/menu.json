@@ -1,9 +1,11 @@
 {
-  "generatedAt": "2026-10-01T21:58:41.309Z",
+  "generatedAt": "2026-10-01T22:03:33.218Z",
   "items": [
     {
       "id": "cocktails__blue-hawaii",
       "name": "Blue Hawaii",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -17,6 +19,8 @@
     {
       "id": "cocktails__blue-lagoon",
       "name": "Blue lagoon",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -30,6 +34,8 @@
     {
       "id": "cocktails__bramble",
       "name": "Bramble",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -43,6 +49,8 @@
     {
       "id": "cocktails__bull-fruge",
       "name": "Bull fruge",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -56,6 +64,8 @@
     {
       "id": "cocktails__crown-signature",
       "name": "Crown Signature",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -69,6 +79,8 @@
     {
       "id": "cocktails__london-mule",
       "name": "London mule",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -82,6 +94,8 @@
     {
       "id": "cocktails__long-island-ice-tea",
       "name": "Long Island ice tea",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -95,6 +109,8 @@
     {
       "id": "cocktails__mai-tai",
       "name": "Mai Tai",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -108,6 +124,8 @@
     {
       "id": "cocktails__manhattan",
       "name": "Manhattan",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -121,6 +139,8 @@
     {
       "id": "cocktails__margarita",
       "name": "Margarita",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -134,6 +154,8 @@
     {
       "id": "cocktails__mojito-classic",
       "name": "Mojito classic",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -147,6 +169,8 @@
     {
       "id": "cocktails__nigroni",
       "name": "Nigroni",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -160,6 +184,8 @@
     {
       "id": "cocktails__old-fashioned",
       "name": "Old fashioned",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -173,6 +199,8 @@
     {
       "id": "cocktails__paloma",
       "name": "Paloma",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -186,6 +214,8 @@
     {
       "id": "cocktails__pina-colada",
       "name": "Pina colada",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -199,6 +229,8 @@
     {
       "id": "cocktails__sex-on-the-beach",
       "name": "Sex on the beach",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -212,6 +244,8 @@
     {
       "id": "cocktails__whiskey-sour",
       "name": "Whiskey sour",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cocktails",
       "glass": {
         "currency": "IQD",
@@ -225,6 +259,8 @@
     {
       "id": "soft-drinks__ginger-beer",
       "name": "ginger beer",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Soft Drinks",
       "glass": {
         "currency": "IQD",
@@ -238,6 +274,8 @@
     {
       "id": "soft-drinks__pepsi-7up-merinda",
       "name": "Pepsi - 7up  - Merinda",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Soft Drinks",
       "glass": {
         "currency": "IQD",
@@ -251,6 +289,8 @@
     {
       "id": "soft-drinks__red-bull",
       "name": "Red Bull",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Soft Drinks",
       "glass": {
         "currency": "IQD",
@@ -264,6 +304,8 @@
     {
       "id": "soft-drinks__soda",
       "name": "soda",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Soft Drinks",
       "glass": {
         "currency": "IQD",
@@ -277,6 +319,8 @@
     {
       "id": "soft-drinks__soda-lemon",
       "name": "soda lemon",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Soft Drinks",
       "glass": {
         "currency": "IQD",
@@ -290,6 +334,8 @@
     {
       "id": "soft-drinks__tonic-water",
       "name": "tonic water",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Soft Drinks",
       "glass": {
         "currency": "IQD",
@@ -303,6 +349,8 @@
     {
       "id": "beer__almaza",
       "name": "Almaza",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Beer",
       "glass": {
         "currency": "IQD",
@@ -316,6 +364,8 @@
     {
       "id": "beer__budweiser",
       "name": "budweiser",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Beer",
       "glass": {
         "currency": "IQD",
@@ -329,6 +379,8 @@
     {
       "id": "beer__corona",
       "name": "Corona",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Beer",
       "glass": {
         "currency": "IQD",
@@ -342,6 +394,8 @@
     {
       "id": "beer__heineken",
       "name": "Heineken",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Beer",
       "glass": {
         "currency": "IQD",
@@ -355,6 +409,8 @@
     {
       "id": "beer__miller",
       "name": "miller",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Beer",
       "glass": {
         "currency": "IQD",
@@ -368,6 +424,8 @@
     {
       "id": "arak__beylerbeyi-raki-gobek",
       "name": "BEYLERBEYI RAKI GOBEK",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Arak",
       "glass": {
         "currency": "IQD",
@@ -384,6 +442,8 @@
     {
       "id": "arak__ouzo-gold-7y",
       "name": "ouzo gold 7y",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Arak",
       "glass": {
         "currency": "IQD",
@@ -400,6 +460,8 @@
     {
       "id": "arak__tekirdag-raki-blue",
       "name": "tekirdag raki blue",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Arak",
       "glass": {
         "currency": "IQD",
@@ -416,6 +478,8 @@
     {
       "id": "arak__tekirdag-raki-gold",
       "name": "tekirdag raki gold",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Arak",
       "glass": {
         "currency": "IQD",
@@ -432,6 +496,8 @@
     {
       "id": "arak__toma",
       "name": "toma",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Arak",
       "glass": {
         "currency": "IQD",
@@ -448,6 +514,8 @@
     {
       "id": "cognac__hennessy-cognac-v-s",
       "name": "1.     Hennessy Cognac V.S",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cognac",
       "glass": {
         "currency": "IQD",
@@ -464,6 +532,8 @@
     {
       "id": "cognac__hennessy-cognac-v-s-o-p",
       "name": "2.     Hennessy Cognac V.S.O.P",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cognac",
       "glass": {
         "currency": "IQD",
@@ -480,6 +550,8 @@
     {
       "id": "cognac__karavan-canelle",
       "name": "karavan canelle",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Cognac",
       "glass": {
         "currency": "IQD",
@@ -496,6 +568,8 @@
     {
       "id": "gin__bombay-sapphire-gin",
       "name": "BOMBAY SAPPHIRE GIN",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Gin",
       "glass": {
         "currency": "IQD",
@@ -512,6 +586,8 @@
     {
       "id": "gin__gordons-gin",
       "name": "Gordons Gin",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Gin",
       "glass": {
         "currency": "IQD",
@@ -528,6 +604,8 @@
     {
       "id": "gin__hendricks-gin",
       "name": "HENDRICKS GIN",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Gin",
       "glass": {
         "currency": "IQD",
@@ -544,6 +622,8 @@
     {
       "id": "gin__roku-japanese-crafted-gin",
       "name": "ROKU JAPANESE CRAFTED GIN",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Gin",
       "glass": {
         "currency": "IQD",
@@ -560,6 +640,8 @@
     {
       "id": "gin__tanqueray",
       "name": "Tanqueray",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Gin",
       "glass": {
         "currency": "IQD",
@@ -576,6 +658,8 @@
     {
       "id": "rum__bacardi-carta-blanca",
       "name": "BACARDI CARTA BLANCA",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Rum",
       "glass": {
         "currency": "IQD",
@@ -589,6 +673,8 @@
     {
       "id": "rum__bacardi-carta-negra",
       "name": "BACARDI CARTA NEGRA",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Rum",
       "glass": {
         "currency": "IQD",
@@ -602,6 +688,8 @@
     {
       "id": "rum__captain-morgan",
       "name": "captain Morgan",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Rum",
       "glass": {
         "currency": "IQD",
@@ -615,6 +703,8 @@
     {
       "id": "rum__captain-morgan-black",
       "name": "captain Morgan black",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Rum",
       "glass": {
         "currency": "IQD",
@@ -628,6 +718,8 @@
     {
       "id": "rum__captin-morgan-gold",
       "name": "captin morgan gold",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Rum",
       "glass": {
         "currency": "IQD",
@@ -641,6 +733,8 @@
     {
       "id": "rum__malibu",
       "name": "malibu",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Rum",
       "glass": {
         "currency": "IQD",
@@ -654,6 +748,8 @@
     {
       "id": "liqueur__absent",
       "name": "absent",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Liqueur",
       "glass": {
         "currency": "IQD",
@@ -670,6 +766,8 @@
     {
       "id": "liqueur__baileys",
       "name": "BAILEYS",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Liqueur",
       "glass": {
         "currency": "IQD",
@@ -686,6 +784,8 @@
     {
       "id": "liqueur__campari",
       "name": "CAMPARI",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Liqueur",
       "glass": {
         "currency": "IQD",
@@ -702,6 +802,8 @@
     {
       "id": "liqueur__jagermeister",
       "name": "JAGERMEISTER",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Liqueur",
       "glass": {
         "currency": "IQD",
@@ -718,6 +820,8 @@
     {
       "id": "liqueur__kahlua-coffee-liqueur",
       "name": "KAHLUA COFFEE LIQUEUR",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Liqueur",
       "glass": {
         "currency": "IQD",
@@ -734,6 +838,8 @@
     {
       "id": "liqueur__martini-rosso",
       "name": "MARTINI ROSSO",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Liqueur",
       "glass": {
         "currency": "IQD",
@@ -750,6 +856,8 @@
     {
       "id": "tequila__olmeca-tequila-reposado",
       "name": "OLMECA TEQUILA REPOSADO",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Tequila",
       "glass": {
         "currency": "IQD",
@@ -766,6 +874,8 @@
     {
       "id": "tequila__olmeca-tequila-silver",
       "name": "OLMECA TEQUILA SILVER",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Tequila",
       "glass": {
         "currency": "IQD",
@@ -782,6 +892,8 @@
     {
       "id": "tequila__patron-gold",
       "name": "patron gold",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Tequila",
       "glass": {
         "currency": "IQD",
@@ -795,6 +907,8 @@
     {
       "id": "tequila__patron-silver",
       "name": "patron silver",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Tequila",
       "glass": {
         "currency": "IQD",
@@ -811,6 +925,8 @@
     {
       "id": "vodka__absolut",
       "name": "ABSOLUT",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Vodka",
       "glass": {
         "currency": "IQD",
@@ -827,6 +943,8 @@
     {
       "id": "vodka__beluga-export-noble",
       "name": "BELUGA EXPORT NOBLE",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Vodka",
       "glass": {
         "currency": "IQD",
@@ -843,6 +961,8 @@
     {
       "id": "vodka__belvedere",
       "name": "BELVEDERE",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Vodka",
       "glass": {
         "currency": "IQD",
@@ -859,6 +979,8 @@
     {
       "id": "vodka__finlandia",
       "name": "Finlandia",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Vodka",
       "glass": {
         "currency": "IQD",
@@ -872,6 +994,8 @@
     {
       "id": "vodka__grey-goose",
       "name": "GREY GOOSE",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Vodka",
       "glass": {
         "currency": "IQD",
@@ -888,6 +1012,8 @@
     {
       "id": "vodka__stoli",
       "name": "STOLI",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Vodka",
       "glass": {
         "currency": "IQD",
@@ -904,6 +1030,8 @@
     {
       "id": "vodka__titos-handmade-vodka",
       "name": "TITOS HANDMADE VODKA",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Vodka",
       "glass": {
         "currency": "IQD",
@@ -920,6 +1048,8 @@
     {
       "id": "whisky__bushmills",
       "name": "BUSHMILLS",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -936,6 +1066,8 @@
     {
       "id": "whisky__bushmills-black",
       "name": "BUSHMILLS BLACK",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -952,6 +1084,8 @@
     {
       "id": "whisky__chivas-regal-12yo",
       "name": "CHIVAS REGAL 12YO",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -968,6 +1102,8 @@
     {
       "id": "whisky__chivas-regal-18yo",
       "name": "CHIVAS REGAL 18YO",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -984,6 +1120,8 @@
     {
       "id": "whisky__glenfiddich-single-malt-12yo",
       "name": "GLENFIDDICH SINGLE MALT 12YO",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1000,6 +1138,8 @@
     {
       "id": "whisky__glenfiddich-single-malt-15yo",
       "name": "GLENFIDDICH SINGLE MALT 15YO",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1016,6 +1156,8 @@
     {
       "id": "whisky__jack-daniels",
       "name": "JACK DANIELS",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1032,6 +1174,8 @@
     {
       "id": "whisky__jack-daniels-apple",
       "name": "JACK DANIELS APPLE",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1048,6 +1192,8 @@
     {
       "id": "whisky__jack-daniels-fire",
       "name": "JACK DANIELS FIRE",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1064,6 +1210,8 @@
     {
       "id": "whisky__jack-daniels-honey",
       "name": "JACK DANIELS HONEY",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1080,6 +1228,8 @@
     {
       "id": "whisky__jameson-crested",
       "name": "JAMESON CRESTED",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1096,6 +1246,8 @@
     {
       "id": "whisky__johnnie-walker-black-label",
       "name": "JOHNNIE WALKER BLACK LABEL",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1112,6 +1264,8 @@
     {
       "id": "whisky__johnnie-walker-double-black",
       "name": "JOHNNIE WALKER DOUBLE BLACK",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1128,6 +1282,8 @@
     {
       "id": "whisky__johnnie-walker-gold-label",
       "name": "JOHNNIE WALKER GOLD LABEL",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1144,6 +1300,8 @@
     {
       "id": "whisky__johnnie-walker-red-label",
       "name": "JOHNNIE WALKER RED LABEL",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1160,6 +1318,8 @@
     {
       "id": "whisky__woodford-reserve",
       "name": "WOODFORD RESERVE",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Whisky",
       "glass": {
         "currency": "IQD",
@@ -1176,6 +1336,8 @@
     {
       "id": "red-wine__frontera-cabernet-sauvignon",
       "name": "FRONTERA CABERNET SAUVIGNON",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Red Wine",
       "glass": {
         "currency": "IQD",
@@ -1192,6 +1354,8 @@
     {
       "id": "red-wine__frontera-sweet-selection",
       "name": "FRONTERA SWEET SELECTION",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Red Wine",
       "glass": {
         "currency": "IQD",
@@ -1208,6 +1372,8 @@
     {
       "id": "red-wine__jacobs-greek-merlot",
       "name": "JACOBS GREEK MERLOT",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Red Wine",
       "glass": {
         "currency": "IQD",
@@ -1224,6 +1390,8 @@
     {
       "id": "red-wine__jacobs-greek-shiraz",
       "name": "JACOBS GREEK SHIRAZ",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Red Wine",
       "glass": {
         "currency": "IQD",
@@ -1240,6 +1408,8 @@
     {
       "id": "red-wine__ksara-cabernet-sauvignon",
       "name": "Ksara CABERNET SAUVIGNON",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Red Wine",
       "glass": {
         "currency": "IQD",
@@ -1256,6 +1426,8 @@
     {
       "id": "red-wine__trivento-malbec",
       "name": "TRIVENTO MALBEC",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Red Wine",
       "glass": {
         "currency": "IQD",
@@ -1272,6 +1444,8 @@
     {
       "id": "white-wine__b-g-sauvignon-blanc",
       "name": "B&G Sauvignon Blanc",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "White Wine",
       "glass": {
         "currency": "IQD",
@@ -1288,6 +1462,8 @@
     {
       "id": "white-wine__jacobs-greek-chardonny",
       "name": "JACOBS GREEK chardonny",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "White Wine",
       "glass": {
         "currency": "IQD",
@@ -1304,6 +1480,8 @@
     {
       "id": "white-wine__jacobs-greek-riesling",
       "name": "JACOBS GREEK riesling",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "White Wine",
       "glass": {
         "currency": "IQD",
@@ -1320,6 +1498,8 @@
     {
       "id": "white-wine__ksara-blanc-de-blanc",
       "name": "Ksara Blanc de Blanc",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "White Wine",
       "glass": {
         "currency": "IQD",
@@ -1336,6 +1516,8 @@
     {
       "id": "white-wine__sinsi-white",
       "name": "sinsi white",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "White Wine",
       "glass": {
         "currency": "IQD",
@@ -1352,6 +1534,8 @@
     {
       "id": "rose-wine__jacobs-greek-rose",
       "name": "JACOBS GREEK rose",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Rose Wine",
       "glass": {
         "currency": "IQD",
@@ -1368,6 +1552,8 @@
     {
       "id": "rose-wine__ksara-rose",
       "name": "Ksara rose",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Rose Wine",
       "glass": {
         "currency": "IQD",
@@ -1384,6 +1570,8 @@
     {
       "id": "sparkling-wine__piccini-prosecco",
       "name": "PICCINI PROSECCO",
+      "nameAr": null,
+      "nameCkb": null,
       "category": "Sparkling Wine",
       "glass": {
         "currency": "IQD",
@@ -1400,6 +1588,8 @@
     {
       "id": "salads__caesar-salad",
       "name": "Caesar Salad",
+      "nameAr": "سيزار سالاد",
+      "nameCkb": "زەڵاتەی سیزەر",
       "category": "Salads",
       "glass": {
         "currency": "IQD",
@@ -1413,6 +1603,8 @@
     {
       "id": "salads__greek-salad",
       "name": "Greek Salad",
+      "nameAr": "كريك سالاد",
+      "nameCkb": "زەڵاتەی یۆنانی",
       "category": "Salads",
       "glass": {
         "currency": "IQD",
@@ -1426,6 +1618,8 @@
     {
       "id": "salads__jajik",
       "name": "Jajik",
+      "nameAr": "جاجيك",
+      "nameCkb": "جاجیک",
       "category": "Salads",
       "glass": {
         "currency": "IQD",
@@ -1439,6 +1633,8 @@
     {
       "id": "salads__oriental-salad",
       "name": "Oriental Salad",
+      "nameAr": "اورينتال سالاد",
+      "nameCkb": "زەڵاتەی ڕۆژهەڵاتی",
       "category": "Salads",
       "glass": {
         "currency": "IQD",
@@ -1452,6 +1648,8 @@
     {
       "id": "steaks__beef-steak",
       "name": "Beef Steak",
+      "nameAr": "ستيك لحم",
+      "nameCkb": "ستێکی گۆشت",
       "category": "Steaks",
       "glass": {
         "currency": "IQD",
@@ -1465,6 +1663,8 @@
     {
       "id": "steaks__chicken-steak",
       "name": "Chicken Steak",
+      "nameAr": "ستيك جاج",
+      "nameCkb": "ستێکی مریشک",
       "category": "Steaks",
       "glass": {
         "currency": "IQD",
