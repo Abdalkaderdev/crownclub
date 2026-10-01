@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { formatMoney } from "@/lib/price";
 import type { Money } from "@/lib/money";
-import type { MenuItem } from "@/lib/menu-schema";
+import { FOOD_CATEGORIES, type MenuItem } from "@/lib/menu-schema";
 import type { Dictionary } from "@/i18n/get-dictionary";
 
 function Price({ label, value, ask }: { label: string; value: Money | null; ask: string }) {
@@ -68,9 +68,19 @@ export function ItemCard({
       </div>
 
       <div className="flex shrink-0 gap-4">
-        {item.glass !== null && <Price label={dict.glass} value={item.glass} ask={dict.askStaff} />}
-        {(item.bottle !== null || item.glass === null) && (
-          <Price label={dict.bottle} value={item.bottle} ask={dict.askStaff} />
+        {FOOD_CATEGORIES.has(item.category) ? (
+          <div className="text-saffron text-end font-semibold tabular-nums" dir="ltr">
+            {item.glass ? formatMoney(item.glass) : dict.askStaff}
+          </div>
+        ) : (
+          <>
+            {item.glass !== null && (
+              <Price label={dict.glass} value={item.glass} ask={dict.askStaff} />
+            )}
+            {(item.bottle !== null || item.glass === null) && (
+              <Price label={dict.bottle} value={item.bottle} ask={dict.askStaff} />
+            )}
+          </>
         )}
       </div>
     </li>

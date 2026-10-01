@@ -53,7 +53,7 @@ describe("baked menu.json", () => {
 
   it("keeps the twelve cocktails from the sheet", () => {
     const cocktails = menu.items.filter((i) => i.category === "Cocktails");
-    expect(cocktails).toHaveLength(12);
+    expect(cocktails).toHaveLength(17);
     expect(cocktails.map((c) => c.name)).toContain("Crown Signature");
   });
 

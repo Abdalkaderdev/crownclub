@@ -2,12 +2,14 @@ import ExcelJS from "exceljs";
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { mergeMenu } from "../src/lib/merge";
+import { parseGvizCsv } from "../src/lib/sheet";
 import { normaliseCategory, menuPayloadSchema } from "../src/lib/menu-schema";
 import type { SourceRow } from "../src/lib/menu-schema";
 
 const ROOT = process.cwd();
 const XLSX = path.join(ROOT, "assets/source-menu.xlsx");
 const CSV = path.join(ROOT, "assets/old-sheet-snapshot.csv");
+const ADDITIONS = path.join(ROOT, "assets/additions.csv");
 const IMAGE_MAP = path.join(ROOT, "assets/image-map.json");
 const OUT = path.join(ROOT, "src/data/menu.json");
 
@@ -72,62 +74,13 @@ async function readExcel(): Promise<SourceRow[]> {
   return rows;
 }
 
-/** Minimal RFC4180 reader — the snapshot is fully quoted. */
-function parseCsv(text: string): string[][] {
-  const out: string[][] = [];
-  let row: string[] = [];
-  let field = "";
-  let quoted = false;
-
-  for (let i = 0; i < text.length; i++) {
-    const c = text[i];
-    if (quoted) {
-      if (c === '"') {
-        if (text[i + 1] === '"') {
-          field += '"';
-          i++;
-        } else quoted = false;
-      } else field += c;
-      continue;
-    }
-    if (c === '"') quoted = true;
-    else if (c === ",") {
-      row.push(field);
-      field = "";
-    } else if (c === "\n") {
-      row.push(field);
-      out.push(row);
-      row = [];
-      field = "";
-    } else if (c !== "\r") field += c;
-  }
-  if (field || row.length) {
-    row.push(field);
-    out.push(row);
-  }
-  return out.filter((r) => r.some((f) => f.trim()));
-}
-
-export function rowsFromCsv(text: string): SourceRow[] {
-  const [header, ...body] = parseCsv(text);
-  const idx = (n: string) => header.findIndex((h) => h.trim().toLowerCase() === n);
-  const iCat = idx("category");
-  const iName = idx("name");
-  const iPrice = idx("price");
-  const iAvail = idx("available");
-
-  return body.map((r) => ({
-    category: r[iCat] ?? "",
-    name: r[iName] ?? "",
-    glass: r[iPrice] ?? "",
-    available: iAvail >= 0 ? r[iAvail] : "",
-  }));
-}
-
 async function main() {
   const excelRows = await readExcel();
-  const sheetRows = rowsFromCsv(await readFile(CSV, "utf8"));
-  const items = mergeMenu(excelRows, sheetRows);
+  const sheetRows = parseGvizCsv(await readFile(CSV, "utf8"));
+  // Items the client sent after the original spreadsheet. Last source in the
+  // "excel" position, so these win on price.
+  const additions = parseGvizCsv(await readFile(ADDITIONS, "utf8"));
+  const items = mergeMenu([...excelRows, ...additions], sheetRows);
 
   let imageMap: Record<string, string> = {};
   try {

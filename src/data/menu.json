@@ -1,6 +1,19 @@
 {
-  "generatedAt": "2026-09-06T12:59:28.296Z",
+  "generatedAt": "2026-10-01T21:58:41.309Z",
   "items": [
+    {
+      "id": "cocktails__blue-hawaii",
+      "name": "Blue Hawaii",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
     {
       "id": "cocktails__blue-lagoon",
       "name": "Blue lagoon",
@@ -12,6 +25,19 @@
       "bottle": null,
       "available": true,
       "image": "/images/cocktails/bluelagoon.webp",
+      "tags": []
+    },
+    {
+      "id": "cocktails__bramble",
+      "name": "Bramble",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
       "tags": []
     },
     {
@@ -67,6 +93,32 @@
       "tags": []
     },
     {
+      "id": "cocktails__mai-tai",
+      "name": "Mai Tai",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "cocktails__manhattan",
+      "name": "Manhattan",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
       "id": "cocktails__margarita",
       "name": "Margarita",
       "category": "Cocktails",
@@ -116,6 +168,19 @@
       "bottle": null,
       "available": true,
       "image": "/images/cocktails/oldfashoined.webp",
+      "tags": []
+    },
+    {
+      "id": "cocktails__paloma",
+      "name": "Paloma",
+      "category": "Cocktails",
+      "glass": {
+        "currency": "IQD",
+        "value": 15000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
       "tags": []
     },
     {
@@ -1330,6 +1395,84 @@
       },
       "available": true,
       "image": "/images/sparkling-wine/piccini-prosecco.webp",
+      "tags": []
+    },
+    {
+      "id": "salads__caesar-salad",
+      "name": "Caesar Salad",
+      "category": "Salads",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "salads__greek-salad",
+      "name": "Greek Salad",
+      "category": "Salads",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "salads__jajik",
+      "name": "Jajik",
+      "category": "Salads",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "salads__oriental-salad",
+      "name": "Oriental Salad",
+      "category": "Salads",
+      "glass": {
+        "currency": "IQD",
+        "value": 10000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "steaks__beef-steak",
+      "name": "Beef Steak",
+      "category": "Steaks",
+      "glass": {
+        "currency": "IQD",
+        "value": 40000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "steaks__chicken-steak",
+      "name": "Chicken Steak",
+      "category": "Steaks",
+      "glass": {
+        "currency": "IQD",
+        "value": 40000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
       "tags": []
     }
   ]
