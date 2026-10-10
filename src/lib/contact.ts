@@ -18,8 +18,8 @@ export const CONTACT: { links: ContactLink[]; address: string; mapsUrl: string }
       handle: "@crownclub.erbil",
       url: "https://www.instagram.com/crownclub.erbil",
     },
-    { key: "whatsapp", label: "WhatsApp", handle: "0750 243 8339", url: "https://wa.me/9647502438339" },
-    { key: "phone-1", label: "Call", handle: "0750 243 8339", url: "tel:+9647502438339" },
+    { key: "whatsapp", label: "WhatsApp", handle: "0751 138 1342", url: "https://wa.me/9647511381342" },
+    { key: "phone-1", label: "Call", handle: "0751 138 1342", url: "tel:+9647511381342" },
     { key: "phone-2", label: "Call", handle: "0775 833 8339", url: "tel:+9647758338339" },
   ],
 };

@@ -1,12 +1,17 @@
 {
+  "cocktails__blue-hawaii": "/images/cocktails/blue-hawaii.webp",
   "cocktails__blue-lagoon": "/images/cocktails/bluelagoon.webp",
+  "cocktails__bramble": "/images/cocktails/bramble.webp",
   "cocktails__bull-fruge": "/images/cocktails/bullfrog.webp",
   "cocktails__london-mule": "/images/cocktails/londonmule.webp",
   "cocktails__long-island-ice-tea": "/images/cocktails/longisland.webp",
+  "cocktails__mai-tai": "/images/cocktails/mai-tai.webp",
+  "cocktails__manhattan": "/images/cocktails/manhattan.webp",
   "cocktails__margarita": "/images/cocktails/margareta.webp",
   "cocktails__mojito-classic": "/images/cocktails/mojito.webp",
   "cocktails__nigroni": "/images/cocktails/negroni.webp",
   "cocktails__old-fashioned": "/images/cocktails/oldfashoined.webp",
+  "cocktails__paloma": "/images/cocktails/paloma.webp",
   "cocktails__pina-colada": "/images/cocktails/pinacolada.webp",
   "cocktails__sex-on-the-beach": "/images/cocktails/sexonthebeach.webp",
   "cocktails__whiskey-sour": "/images/cocktails/whiskeysour.webp",
@@ -20,6 +25,7 @@
   "beer__budweiser": "/images/beer/budweiser.webp",
   "beer__corona": "/images/beer/corona.webp",
   "beer__heineken": "/images/beer/heinekin.webp",
+  "beer__miller": "/images/beer/miller.webp",
   "arak__beylerbeyi-raki-gobek": "/images/arak/gobek.webp",
   "arak__ouzo-gold-7y": "/images/arak/ouzo.webp",
   "arak__tekirdag-raki-blue": "/images/arak/tek-blue.webp",
@@ -85,5 +91,11 @@
   "white-wine__sinsi-white": "/images/white-wine/sinsi-white.webp",
   "rose-wine__jacobs-greek-rose": "/images/rose-wine/jacobs-greek-rose.webp",
   "rose-wine__ksara-rose": "/images/rose-wine/ksara-rose.webp",
-  "sparkling-wine__piccini-prosecco": "/images/sparkling-wine/piccini-prosecco.webp"
+  "sparkling-wine__piccini-prosecco": "/images/sparkling-wine/piccini-prosecco.webp",
+  "salads__caesar-salad": "/images/salads/caesar-salad.webp",
+  "salads__greek-salad": "/images/salads/greek-salad.webp",
+  "salads__jajik": "/images/salads/jajik.webp",
+  "salads__oriental-salad": "/images/salads/oriental-salad.webp",
+  "steaks__beef-steak": "/images/steaks/beef-steak.webp",
+  "steaks__chicken-steak": "/images/steaks/chicken-steak.webp"
 }

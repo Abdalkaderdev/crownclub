@@ -18,7 +18,13 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
     <div className="mx-auto max-w-[580px] px-4">
       <Hero dict={dict} locale={locale} />
       <MenuBrowser initialItems={items} dict={dict} locale={locale} />
-      <footer className="text-muted py-8 text-center text-xs">Crown Club</footer>
+      <footer className="text-muted py-8 text-center text-xs">
+        Crown Club
+        {/* CC-BY and CC-BY-SA photos require attribution. */}
+        <a href="/credits.txt" className="text-muted/60 mt-1 block underline">
+          Photo credits
+        </a>
+      </footer>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-01T22:03:33.218Z",
+  "generatedAt": "2026-10-10T10:59:48.463Z",
   "items": [
     {
       "id": "cocktails__blue-hawaii",
@@ -13,7 +13,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/blue-hawaii.webp",
       "tags": []
     },
     {
@@ -43,7 +43,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/bramble.webp",
       "tags": []
     },
     {
@@ -118,7 +118,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/mai-tai.webp",
       "tags": []
     },
     {
@@ -133,7 +133,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/manhattan.webp",
       "tags": []
     },
     {
@@ -208,7 +208,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/cocktails/paloma.webp",
       "tags": []
     },
     {
@@ -418,7 +418,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/beer/miller.webp",
       "tags": []
     },
     {
@@ -1597,7 +1597,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/salads/caesar-salad.webp",
       "tags": []
     },
     {
@@ -1612,7 +1612,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/salads/greek-salad.webp",
       "tags": []
     },
     {
@@ -1627,7 +1627,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/salads/jajik.webp",
       "tags": []
     },
     {
@@ -1642,7 +1642,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/salads/oriental-salad.webp",
       "tags": []
     },
     {
@@ -1657,7 +1657,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/steaks/beef-steak.webp",
       "tags": []
     },
     {
@@ -1672,7 +1672,7 @@
       },
       "bottle": null,
       "available": true,
-      "image": null,
+      "image": "/images/steaks/chicken-steak.webp",
       "tags": []
     }
   ]

@@ -73,8 +73,22 @@ const OVERRIDES: Record<string, string | null> = {
   "red-wine__jacobs-greek-merlot": "/images/red-wine/jacobs.webp",
   "red-wine__jacobs-greek-shiraz": "/images/red-wine/jacobs-greek-shiraz.webp",
 
-  // No bottle shot exists for these. The category fallback is correct.
-  "beer__miller": null,
+  // Sourced from Wikimedia Commons; see public/credits.txt. Pinned rather
+  // than fuzzy-matched because the filenames were chosen to match exactly.
+  "beer__miller": "/images/beer/miller.webp",
+  "cocktails__blue-hawaii": "/images/cocktails/blue-hawaii.webp",
+  "cocktails__bramble": "/images/cocktails/bramble.webp",
+  "cocktails__mai-tai": "/images/cocktails/mai-tai.webp",
+  "cocktails__manhattan": "/images/cocktails/manhattan.webp",
+  "cocktails__paloma": "/images/cocktails/paloma.webp",
+  "salads__caesar-salad": "/images/salads/caesar-salad.webp",
+  "salads__greek-salad": "/images/salads/greek-salad.webp",
+  "salads__jajik": "/images/salads/jajik.webp",
+  "salads__oriental-salad": "/images/salads/oriental-salad.webp",
+  "steaks__beef-steak": "/images/steaks/beef-steak.webp",
+  "steaks__chicken-steak": "/images/steaks/chicken-steak.webp",
+
+  // The bar's own cocktail — no stock photo is right. Needs one from them.
   "cocktails__crown-signature": null,
 };
 
@@ -128,6 +142,17 @@ async function main() {
           (best ? `  (best was ${best.stem} at ${best.s.toFixed(2)})` : ""),
       );
     }
+  }
+
+  // Every mapped file must exist, or the menu renders broken images. The
+  // OVERRIDES table is hand-written, so a typo here is entirely likely.
+  const missing = Object.entries(map).filter(
+    ([, webp]) => !existsSync(path.join(ROOT, "public", webp.replace(/^\//, ""))),
+  );
+  if (missing.length) {
+    console.error("Mapped photos that are not on disk:");
+    for (const [id, webp] of missing) console.error(`  ${id} -> ${webp}`);
+    process.exit(1);
   }
 
   await writeFile(OUT, JSON.stringify(map, null, 2) + "\n", "utf8");
