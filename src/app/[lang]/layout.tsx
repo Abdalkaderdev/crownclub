@@ -73,6 +73,11 @@ export default async function LocaleLayout({
       dir={isRtl(locale) ? "rtl" : "ltr"}
       className={`${display.variable} ${body.variable} ${arabic.variable}`}
     >
+      {/* Several drink and food photos are CC-BY / CC-BY-SA, which require
+          attribution. Kept out of the visible menu at the client's request;
+          this rel="license" link is the machine-readable equivalent and keeps
+          the credits reachable. */}
+      <link rel="license" href="/credits.txt" />
       <body className="bg-ink text-cream min-h-dvh pb-16 antialiased">{children}</body>
     </html>
   );
