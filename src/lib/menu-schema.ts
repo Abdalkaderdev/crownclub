@@ -19,6 +19,7 @@ export const CATEGORIES = [
   "Sparkling Wine",
   "Salads",
   "Steaks",
+  "Hookah",
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];
@@ -55,6 +56,10 @@ const CATEGORY_ALIASES: Record<string, Category> = {
   salads: "Salads",
   steak: "Steaks",
   steaks: "Steaks",
+  hookah: "Hookah",
+  shisha: "Hookah",
+  nargila: "Hookah",
+  narghile: "Hookah",
 };
 
 export function normaliseCategory(raw: string): Category | null {
@@ -66,8 +71,12 @@ export function normaliseCategory(raw: string): Category | null {
   return CATEGORY_ALIASES[key] ?? null;
 }
 
-/** Food, not drink: these get a bare price with no Glass/Bottle label. */
-export const FOOD_CATEGORIES: ReadonlySet<Category> = new Set(["Salads", "Steaks"]);
+/** Not sold by the glass or bottle: these get a single bare price. */
+export const FOOD_CATEGORIES: ReadonlySet<Category> = new Set([
+  "Salads",
+  "Steaks",
+  "Hookah",
+]);
 
 export const menuItemSchema = z.object({
   id: z.string().min(1),

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T10:59:48.463Z",
+  "generatedAt": "2026-10-13T11:19:22.608Z",
   "items": [
     {
       "id": "cocktails__blue-hawaii",
@@ -1673,6 +1673,51 @@
       "bottle": null,
       "available": true,
       "image": "/images/steaks/chicken-steak.webp",
+      "tags": []
+    },
+    {
+      "id": "hookah__nargila-crown",
+      "name": "Nargila Crown",
+      "nameAr": "نركيلة كراون",
+      "nameCkb": "ناڕگیلەی کراون",
+      "category": "Hookah",
+      "glass": {
+        "currency": "IQD",
+        "value": 50000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "hookah__nargila-normal",
+      "name": "Nargila Normal",
+      "nameAr": "نركيلة عادي",
+      "nameCkb": "ناڕگیلەی ئاسایی",
+      "category": "Hookah",
+      "glass": {
+        "currency": "IQD",
+        "value": 20000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
+      "tags": []
+    },
+    {
+      "id": "hookah__nargila-vip",
+      "name": "Nargila VIP",
+      "nameAr": "نركيلة VIP",
+      "nameCkb": "ناڕگیلەی VIP",
+      "category": "Hookah",
+      "glass": {
+        "currency": "IQD",
+        "value": 30000
+      },
+      "bottle": null,
+      "available": true,
+      "image": null,
       "tags": []
     }
   ]
